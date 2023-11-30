@@ -45,6 +45,7 @@ public class Carte implements Effet {
     	for(int i=1; i<=nombre; i++) {
     		tas.add(cible.poll());
     	}
+    	tas.toString();
     	return tas;
     }
     
