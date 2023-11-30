@@ -1,6 +1,8 @@
 package karmaka.v1;
 
-public class Carte {
+import java.util.LinkedList;
+
+public class Carte implements Effet {
 	
     private Points points;
     private Couleur couleur;
@@ -31,7 +33,26 @@ public class Carte {
 		sb.append(this.points);
 		sb.append(this.couleur);
 		return sb.toString();
-    }   
+    }
+    
+    public void deplacer(LinkedList<Carte> depart, LinkedList<Carte> arrivee, Carte carte) {
+    	depart.remove(carte);
+    	arrivee.add(carte);
+    }
+    
+    public LinkedList<Carte> regarder(LinkedList<Carte> cible, int nombre) {
+    	LinkedList <Carte> tas = new LinkedList<>();
+    	for(int i=1; i<=nombre; i++) {
+    		tas.add(cible.poll());
+    	}
+    	return tas;
+    }
+    
+    public Carte copier(Carte cible) {
+    	return cible;
+    }
+    
+    
 	/*
     public static void main(String[]args){
     	Carte c1=new Carte(Valeur.DIX, Couleur.COEUR);
@@ -61,4 +82,10 @@ public class Carte {
 
     }
 */
+
+
+	@Override
+	public void effet(int nombre, String depart, String arrivee, String cible, Carte carte) {
+		// TODO Auto-generated method stub
+	}
 }
