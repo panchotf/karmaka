@@ -2,6 +2,7 @@ package karmaka.v1;
 
 import java.util.LinkedList;
 
+//test
 public class Carte implements Effet {
 	
 	private String nom;
