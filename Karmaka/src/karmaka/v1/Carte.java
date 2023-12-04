@@ -4,13 +4,23 @@ import java.util.LinkedList;
 
 public class Carte implements Effet {
 	
+	private String nom;
     private Points points;
     private Couleur couleur;
 
-    public Carte (Points points, Couleur couleur) {
+    public Carte (String nom, Points points, Couleur couleur) {
+        this.setNom(nom);
     	this.setCouleur(couleur);
     	this.setPoints(points);
     }
+    
+    public String getNom() {
+    	return nom;
+    }
+
+    public void setNom(String nom) {
+		    this.nom = nom;
+	}
 
     public Couleur getCouleur() {
     	return couleur;

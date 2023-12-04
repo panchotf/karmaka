@@ -1,5 +1,6 @@
 package karmaka.v1;
 
+import java.util.*;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -7,19 +8,26 @@ public class JeuCartes {
 	
 	// attributs d'un jeu de cartes
 	private LinkedList<Carte> tasCartes;
-//	public static final int nbrCartes = Valeur.values().length * Couleur.values().length; // 8 x 4 = 32 cartes
+	public static final int nbrCartes = 64;
 	
 	// constructeur du jeu de cartes
 	public JeuCartes(){
 		// instancie le jeu de cartes 
-		this.tasCartes = new LinkedList<>();
-		Valeur[] v=Valeur.values(); // ici values renvoie un tableau de Valeur
-		Couleur[] c=Couleur.values(); // ici values renvoie un tableau de Couleur
-		for(int i=0 ; i < v.length; i++){
-			for(int j=0 ; j < c.length ; j++){
-				Carte carte = new Carte(v[i] , c[j] );
-				// on ajoute cette carte au tas de cartes
-				tasCartes.add(carte);
+		this.tasCartes = new LinkedList<Cartes>();
+		
+		// On créé toutes les cartes
+		Carte vol1 = new Carte("Vol", Point.Trois, Couleur.BLEU);
+		tasCartes.add(vol1);
+		Carte vol2 = new Carte("Vol", Point.Trois, Couleur.BLEU);
+		tasCartes.add(vol2);
+		
+		Carte transmigration1 = new Carte("Transmigration", Point.Un, Couleur.BLEU);
+		tasCartes.add(transmigration1);
+		Carte transmigration2 = new Carte("Transmigration", Point.Un, Couleur.BLEU);
+		tasCartes.add(transmigration2);
+		Carte transmigration3 = new Carte("Transmigration", Point.Un, Couleur.BLEU);
+		tasCartes.add(transmigration3);
+		
 			}
 		}
 	}
