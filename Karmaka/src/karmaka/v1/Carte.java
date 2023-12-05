@@ -2,7 +2,6 @@ package karmaka.v1;
 
 import java.util.LinkedList;
 
-//test
 public class Carte implements Effet {
 	
 	private String nom;
@@ -41,8 +40,9 @@ public class Carte implements Effet {
 
     public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append(this.points);
-		sb.append(this.couleur);
+		sb.append(this.nom);
+		// sb.append(this.points);
+		// sb.append(this.couleur);
 		return sb.toString();
     }
     
