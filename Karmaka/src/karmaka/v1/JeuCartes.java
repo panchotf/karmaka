@@ -1,6 +1,6 @@
 package karmaka.v1;
 
-import java.util.*;
+
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -13,24 +13,57 @@ public class JeuCartes {
 	// constructeur du jeu de cartes
 	public JeuCartes(){
 		// instancie le jeu de cartes 
-		this.tasCartes = new LinkedList<Cartes>();
+		this.tasCartes = new LinkedList<Carte>();
 		
 		// On créé toutes les cartes
-		Carte vol1 = new Carte("Vol", Point.Trois, Couleur.BLEU);
-		tasCartes.add(vol1);
-		Carte vol2 = new Carte("Vol", Point.Trois, Couleur.BLEU);
-		tasCartes.add(vol2);
 		
-		Carte transmigration1 = new Carte("Transmigration", Point.Un, Couleur.BLEU);
+		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
 		tasCartes.add(transmigration1);
-		Carte transmigration2 = new Carte("Transmigration", Point.Un, Couleur.BLEU);
+		Carte transmigration2 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
 		tasCartes.add(transmigration2);
-		Carte transmigration3 = new Carte("Transmigration", Point.Un, Couleur.BLEU);
+		Carte transmigration3 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
 		tasCartes.add(transmigration3);
 		
+		Carte destinee1 = new Carte("Destinee", Points.Un, Couleur.BLEU);
+		tasCartes.add(destinee1);
+		Carte destinee2 = new Carte("Destinee", Points.Un, Couleur.BLEU);
+		tasCartes.add(destinee2);
+		Carte destinee3 = new Carte("Destinee", Points.Un, Couleur.BLEU);
+		tasCartes.add(destinee3);
+		
+		Carte Coupdoeil1 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU);
+		tasCartes.add(Coupdoeil1);
+		Carte Coupdoeil2 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU);
+		tasCartes.add(Coupdoeil2);
+		Carte Coupdoeil3 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU);
+		tasCartes.add(Coupdoeil3);
+		
+		Carte ReveBrises1 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU);
+		tasCartes.add(ReveBrises1);
+		Carte ReveBrises2 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU);
+		tasCartes.add(ReveBrises2);
+		Carte ReveBrises3 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU);
+		tasCartes.add(ReveBrises3);
+		
+		Carte duperie1 = new Carte("Duperie", Points.Trois, Couleur.BLEU);
+		tasCartes.add(duperie1);
+		Carte duperie2 = new Carte("Duperie", Points.Trois, Couleur.BLEU);
+		tasCartes.add(duperie2);
+		
+		Carte deni1 = new Carte("Déni", Points.Trois, Couleur.BLEU);
+		tasCartes.add(deni1);
+		Carte deni2 = new Carte("Déni", Points.Trois, Couleur.BLEU);
+		tasCartes.add(deni2);
+		Carte deni3 = new Carte("Déni", Points.Trois, Couleur.BLEU);
+		tasCartes.add(deni3);
+		
+		Carte vol1 = new Carte("Vol", Points.Trois, Couleur.BLEU);
+		tasCartes.add(vol1);
+		//Carte vol2 = new Carte("Vol", Points.Trois, Couleur.BLEU);
+		//tasCartes.add(vol2);
+		
 			}
-		}
-	}
+	
 	
 	// retire la premiére carte du tas de cartes (la carte du dessus)
 	public Carte distribuerUneCarte(){ 
