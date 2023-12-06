@@ -10,6 +10,7 @@ public class Partie {
 	// attributs d'une Partie 
 	private ArrayList<Joueur> listJ;
 	private JeuCartes jeu;
+	private ArrayList<Carte> defausse;
 	
 	
 	//******************Constructeur de la partie*************
@@ -19,11 +20,19 @@ public class Partie {
 		
 		// instanciation du jeu de carte 
 		jeu = new JeuCartes();
+		
+		// instanciation de la defausse 
+		defausse = new ArrayList<>();
 	}
 	
 	//******************Ajouter un joueur à la liste des joueurs*********
 	public void ajouterUnJoueur(Joueur joueur) {
 		listJ.add(joueur);
+	}
+	
+	//*******************Ajouter des cartes dans la défausse**************
+	public void defausser(Carte carte) {
+		defausse.add(carte);
 	}
 	
     //*****************Mélange et distribution**************************
@@ -45,6 +54,7 @@ public class Partie {
 		}	
 		
 	}
+	
 	
 	// la partie est terminée quand un vainqueur est trouvé
 	public boolean partieTerminee() {
@@ -94,15 +104,38 @@ public class Partie {
 		
 		
 		int joueurActuel = 0; // Pour montrer qui est en train de jouer. En fait la variable prendre que la valeur 0 ou 1. 
+		Carte cartePlateau = null; // 
 		
 		while (karmaka.partieTerminee()==false) {
 			
 			 
 			 Joueur joueurCourant = karmaka.listJ.get(joueurActuel);
 			 joueurActuel = (joueurActuel + 1) % 2;
+			 
+			 
+			 //************************Phase de sélection de la carte sur le plateau ou non**********************************
+			 if (cartePlateau != null) {
+				 System.out.println("La carte sur le plateau est "+cartePlateau.getNom()+" Souhaitez-vous la prendre ?");
+				 System.out.println("(1) Oui (2) Non");
+				 saisieClavier = terminal.lireChaine();
+				 
+				 if (saisieClavier.equals("1")) {
+					 joueurCourant.ajouterVieFuture(cartePlateau);
+					 cartePlateau = null; 
+				 }
+				 else {
+					 karmaka.defausser(cartePlateau);
+					 cartePlateau = null; 
+				 }
+				 
+			 }
+			 
+			 //*************************Début du tour**************************************************************************
 			 System.out.println(joueurCourant);
-			 System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer");
+			 
+			 System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse");
 			 saisieClavier = terminal.lireChaine();
+			 
 			 
 			 
 			 if (saisieClavier.equals("1")) {
@@ -119,10 +152,20 @@ public class Partie {
 					 joueurCourant.ajouterOeuvre(carteChoisie);
 					 joueurCourant.retirerCarte(carteChoisie);
 			 }
+			 else if (saisieClavier.equals("3")) {
+				    System.out.println("Sélectionnez une carte à jouer : ");
+					 saisieClavier = terminal.lireChaine();
+					 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
+					 cartePlateau = carteChoisie;
+					 joueurCourant.retirerCarte(carteChoisie);
+			 }
+			 
 			else {
 				    System.out.println("Désolé pas encore codé");
 				}
+			
 		}
+		
 	}
 	
 
