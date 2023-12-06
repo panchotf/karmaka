@@ -37,6 +37,10 @@ public class Joueur {
 		pile.remove(carte);
 	}
 	
+	public boolean pileVide(){
+		return pile.isEmpty();
+	}
+	
 	public void ajouterOeuvre(Carte carte){
 		oeuvres.add(carte);
 	}

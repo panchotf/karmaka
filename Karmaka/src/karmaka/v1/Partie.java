@@ -112,9 +112,11 @@ public class Partie {
 			 Joueur joueurCourant = karmaka.listJ.get(joueurActuel);
 			 joueurActuel = (joueurActuel + 1) % 2;
 			 
-			 // Piocher une carte 
-			 joueurCourant.piocher();
-			 
+			 // Piocher une carte si la pile est non vide 
+			 if (joueurCourant.pileVide()==false) {
+				 joueurCourant.piocher();
+			 }
+
 			 //************************Phase de sélection de la carte sur le plateau ou non**********************************
 			 if (cartePlateau != null) {
 				 System.out.println("La carte sur le plateau est "+cartePlateau.getNom()+" Souhaitez-vous la prendre ?");
