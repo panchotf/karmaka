@@ -149,12 +149,21 @@ public class Partie {
 			 //***************************Réincarnation ou non***************************************************************
 			 
 			 if(joueurCourant.estVivant()==false) {
-				 System.out.println("Vous êtes mort. Appuyez sur entrée pour vous réincarner");
-				 terminal.lireChaine();
+				 System.out.println("Vous êtes mort");
 				 
 				 //********************************Comptage des points********************************************************
+				 int nbPoints = joueurCourant.maxPoints(joueurCourant.sommeDesPointsParCouleur())+joueurCourant.getAnneaux();
+				 System.out.println("Vous avez accumulé "+nbPoints+" points dans cette vie.");
+				 if(nbPoints >= joueurCourant.getptsKarm())
+				 	{
+					 System.out.println("Bravo, vous pouvez vous réincarner dans la classe supérieure");
+					 joueurCourant.setptsKarm(joueurCourant.getptsKarm()+1);
+				 	}
+				 else {
+					 System.out.println("Vous n'avez pas assez de point.");
+				 }
 				 
-				 
+				 terminal.lireChaine();
 				 
 				 
 				 //********************************Phase de Reincarnation*****************************************************

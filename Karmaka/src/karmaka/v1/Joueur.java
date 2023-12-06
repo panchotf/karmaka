@@ -7,6 +7,7 @@ public class Joueur {
 	
 	private String nom;
 	private int ptsKarm;
+	private int anneaux;
 	private LinkedList<Carte> main;
 	private LinkedList<Carte> pile;
 	private LinkedList<Carte> oeuvres;
@@ -20,6 +21,7 @@ public class Joueur {
 		this.oeuvres = new LinkedList<>();
 		this.viefuture = new LinkedList<>();
 		this.ptsKarm = 4;
+		this.anneaux = 0;
 		this.vivant=true;
 	}
 	
@@ -27,6 +29,18 @@ public class Joueur {
 	
 	public int getptsKarm() {
 		return ptsKarm;
+	}
+	
+	public void setptsKarm(int ptsKarm) {
+		this.ptsKarm = ptsKarm;
+	}
+	
+	public int getAnneaux() {
+		return anneaux;
+	}
+	
+	public void setAnneaux(int anneaux) {
+		this.anneaux = anneaux;
 	}
 	
 	public void ramasserCarte(Carte carte){
@@ -108,6 +122,18 @@ public class Joueur {
         }
 
         return sommePointsParCouleur;
+    }
+    
+    public int maxPoints(Map<Couleur, Integer> sommeDesPointsParCouleur) {
+        int valeurMaximale = 0;  // La valeur par défaut si la Map est vide
+
+        for (int valeurPoints : sommeDesPointsParCouleur.values()) {
+            if (valeurPoints > valeurMaximale) {
+                valeurMaximale = valeurPoints;
+            }
+        }
+
+        return valeurMaximale;
     }
 	
 	// Méthode publique pour pouvoir récupérer une carte dans la main du joueur 
