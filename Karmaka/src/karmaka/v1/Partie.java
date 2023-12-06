@@ -1,6 +1,7 @@
 package karmaka.v1;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import java.util.Iterator;
 
@@ -10,7 +11,7 @@ public class Partie {
 	// attributs d'une Partie 
 	private ArrayList<Joueur> listJ;
 	private JeuCartes jeu;
-	private ArrayList<Carte> defausse;
+	private LinkedList<Carte> defausse;
 	
 	
 	//******************Constructeur de la partie*************
@@ -22,7 +23,7 @@ public class Partie {
 		jeu = new JeuCartes();
 		
 		// instanciation de la defausse 
-		defausse = new ArrayList<>();
+		defausse = new LinkedList<>();
 	}
 	
 	//******************Ajouter un joueur à la liste des joueurs*********
@@ -134,54 +135,74 @@ public class Partie {
 				 
 			 }
 			 
+
 			 //*************************Début du tour**************************************************************************
 			 System.out.println(joueurCourant);
 			 
+			 //***************************Réincarnation ou non***************************************************************
 			 
-			 // On vérifie que l'utilisateur choisie une option disponible 
-			 saisieClavier = "nan";
-			 
-			 while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3")||(saisieClavier.equals("5") && (joueurCourant.pileVide()==false)))) {
-			 System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse (5)Passer tour");
-			 saisieClavier = terminal.lireChaine();
-			 
-			 	if (saisieClavier.equals("4")) {
-			 		System.out.println(karmaka.defausse);
-			 	}
-			 	else if ((saisieClavier.equals("5") && (joueurCourant.pileVide()==true))) {
-			 		System.out.println("Vous ne pouvez pas passer votre tour car votre pile est vide");
-			 	}
+			 if(joueurCourant.estVivant()==false) {
+				 System.out.println("Vous êtes mort. Appuyez sur entrée pour vous réincarner");
+				 terminal.lireChaine();
+				 
+				 
+				 //********************************Phase de Reincarnation*****************************************************
+				 joueurCourant.viderOeuvre(karmaka.defausse);
+				 joueurCourant.reincarner();
 			 }
 			 
 			 
-			 if (saisieClavier.equals("1")) {
-				    System.out.println("Sélectionnez une carte de votre main à mettre dans la vie future : ");
-					 saisieClavier = terminal.lireChaine();
-					 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
-					 joueurCourant.ajouterVieFuture(carteChoisie);
-					 joueurCourant.retirerCarte(carteChoisie);
+			 //**************************S'il n'est pas en réincarnation, le joueur choisit une option de jeu******************
+			 
+			 else {
+				 // On vérifie que l'utilisateur choisie une option disponible 
+				 saisieClavier = "nan"; // On set la saisie clavier de départ avec un string quelconque pour éviter d'avoir des soucis avec null
+				 
+				 while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3")||(saisieClavier.equals("5") && (joueurCourant.pileVide()==false)))) {
+				 System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse (5)Passer tour");
+				 saisieClavier = terminal.lireChaine();
+				 
+				 	if (saisieClavier.equals("4")) {
+				 		System.out.println(karmaka.defausse);
+				 	}
+				 	else if ((saisieClavier.equals("5") && (joueurCourant.pileVide()==true))) {
+				 		System.out.println("Vous ne pouvez pas passer votre tour car votre pile est vide");
+				 	}
+				 }
+				 
+				 
+				 if (saisieClavier.equals("1")) {
+					    System.out.println("Sélectionnez une carte de votre main à mettre dans la vie future : ");
+						 saisieClavier = terminal.lireChaine();
+						 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
+						 joueurCourant.ajouterVieFuture(carteChoisie);
+						 joueurCourant.retirerCarte(carteChoisie);
+				 }
+				 else if (saisieClavier.equals("2")) {
+					    System.out.println("Sélectionnez une carte à mettre dans vos oeuvres : ");
+						 saisieClavier = terminal.lireChaine();
+						 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
+						 joueurCourant.ajouterOeuvre(carteChoisie);
+						 joueurCourant.retirerCarte(carteChoisie);
+				 }
+				 else if (saisieClavier.equals("3")) {
+					    System.out.println("Sélectionnez une carte à jouer : ");
+						 saisieClavier = terminal.lireChaine();
+						 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
+						 cartePlateau = carteChoisie;
+						 joueurCourant.retirerCarte(carteChoisie);
+				 }
+				 else if (saisieClavier.equals("5")) {
+	
+				 }
+				 
+				 // On vérifie si le joueur meurt après ce tour : 
+				 if(joueurCourant.pileVide()==true && joueurCourant.mainVide()==true) {
+					 joueurCourant.tuer();
+				 }
+			 
 			 }
-			 else if (saisieClavier.equals("2")) {
-				    System.out.println("Sélectionnez une carte à mettre dans vos oeuvres : ");
-					 saisieClavier = terminal.lireChaine();
-					 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
-					 joueurCourant.ajouterOeuvre(carteChoisie);
-					 joueurCourant.retirerCarte(carteChoisie);
-			 }
-			 else if (saisieClavier.equals("3")) {
-				    System.out.println("Sélectionnez une carte à jouer : ");
-					 saisieClavier = terminal.lireChaine();
-					 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
-					 cartePlateau = carteChoisie;
-					 joueurCourant.retirerCarte(carteChoisie);
-			 }
-			 else if (saisieClavier.equals("5")) {
 
-			 }
-			 
-			else {
-				    System.out.println("Désolé pas encore codé");
-				}
 			
 		}
 		

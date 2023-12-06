@@ -10,6 +10,7 @@ public class Joueur {
 	private LinkedList<Carte> pile;
 	private LinkedList<Carte> oeuvres;
 	private LinkedList<Carte> viefuture;
+	private boolean vivant;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
@@ -18,6 +19,7 @@ public class Joueur {
 		this.oeuvres = new LinkedList<>();
 		this.viefuture = new LinkedList<>();
 		this.ptsKarm = 0;
+		this.vivant=true;
 	}
 	
 	// le joueur ramasse la carte et l'ajoute en dessous des cartes déjà existantes dans la main
@@ -41,6 +43,10 @@ public class Joueur {
 		return pile.isEmpty();
 	}
 	
+	public boolean mainVide(){
+		return main.isEmpty();
+	}
+	
 	public void ajouterOeuvre(Carte carte){
 		oeuvres.add(carte);
 	}
@@ -49,6 +55,11 @@ public class Joueur {
 		oeuvres.remove(carte);
 	}
 	
+	public void viderOeuvre(LinkedList<Carte> defausse) {
+		defausse.addAll(oeuvres);
+		oeuvres.clear();
+	}
+
 	public void ajouterVieFuture(Carte carte){
 		viefuture.add(carte);
 	}
@@ -56,6 +67,18 @@ public class Joueur {
 	public void piocher() {
 		main.add(pile.getFirst());
 		pile.remove(pile.getFirst());
+	}
+	
+	public void tuer() {
+		this.vivant = false;
+	}
+	
+	public void reincarner() {
+		this.vivant = true;
+	}
+	
+	public boolean estVivant() {
+		return this.vivant;
 	}
 	
 	// Méthode publique pour pouvoir récupérer une carte dans la main du joueur 
