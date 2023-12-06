@@ -200,22 +200,28 @@ public class Partie {
 				 
 				 
 				 if (saisieClavier.equals("1")) {
-					    System.out.println("Sélectionnez une carte de votre main à mettre dans la vie future : ");
+					    while (joueurCourant.getCarteDeMain(saisieClavier)==null) {
+						 System.out.println("Sélectionnez une carte de votre main à mettre dans la vie future : ");
 						 saisieClavier = terminal.lireChaine();
+					    }
 						 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
 						 joueurCourant.ajouterVieFuture(carteChoisie);
 						 joueurCourant.retirerCarte(carteChoisie);
 				 }
 				 else if (saisieClavier.equals("2")) {
+					 while (joueurCourant.getCarteDeMain(saisieClavier)==null) {
 					    System.out.println("Sélectionnez une carte à mettre dans vos oeuvres : ");
 						 saisieClavier = terminal.lireChaine();
+					 }
 						 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
 						 joueurCourant.ajouterOeuvre(carteChoisie);
 						 joueurCourant.retirerCarte(carteChoisie);
 				 }
 				 else if (saisieClavier.equals("3")) {
+					 while (joueurCourant.getCarteDeMain(saisieClavier)==null) {
 					    System.out.println("Sélectionnez une carte à jouer : ");
 						 saisieClavier = terminal.lireChaine();
+					 }
 						 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
 						 cartePlateau = carteChoisie;
 						 joueurCourant.retirerCarte(carteChoisie);
