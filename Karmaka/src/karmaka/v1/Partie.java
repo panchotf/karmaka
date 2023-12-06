@@ -137,14 +137,19 @@ public class Partie {
 			 //*************************Début du tour**************************************************************************
 			 System.out.println(joueurCourant);
 			 
+			 
+			 // On vérifie que l'utilisateur choisie une option disponible 
 			 saisieClavier = "nan";
 			 
-			 while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3"))) {
-			 System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse");
+			 while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3")||(saisieClavier.equals("5") && (joueurCourant.pileVide()==false)))) {
+			 System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse (5)Passer tour");
 			 saisieClavier = terminal.lireChaine();
 			 
 			 	if (saisieClavier.equals("4")) {
 			 		System.out.println(karmaka.defausse);
+			 	}
+			 	else if ((saisieClavier.equals("5") && (joueurCourant.pileVide()==true))) {
+			 		System.out.println("Vous ne pouvez pas passer votre tour car votre pile est vide");
 			 	}
 			 }
 			 
@@ -169,6 +174,9 @@ public class Partie {
 					 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
 					 cartePlateau = carteChoisie;
 					 joueurCourant.retirerCarte(carteChoisie);
+			 }
+			 else if (saisieClavier.equals("5")) {
+
 			 }
 			 
 			else {
