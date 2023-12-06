@@ -104,7 +104,7 @@ public class Partie {
 		
 		
 		int joueurActuel = 0; // Pour montrer qui est en train de jouer. En fait la variable prendre que la valeur 0 ou 1. 
-		Carte cartePlateau = null; // 
+		Carte cartePlateau = null; // La carte qui a été joué au tour précédent 
 		
 		while (karmaka.partieTerminee()==false) {
 			
@@ -133,9 +133,16 @@ public class Partie {
 			 //*************************Début du tour**************************************************************************
 			 System.out.println(joueurCourant);
 			 
+			 saisieClavier = "nan";
+			 
+			 while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3"))) {
 			 System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse");
 			 saisieClavier = terminal.lireChaine();
 			 
+			 	if (saisieClavier.equals("4")) {
+			 		System.out.println(karmaka.defausse);
+			 	}
+			 }
 			 
 			 
 			 if (saisieClavier.equals("1")) {
