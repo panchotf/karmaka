@@ -112,6 +112,8 @@ public class Partie {
 			 Joueur joueurCourant = karmaka.listJ.get(joueurActuel);
 			 joueurActuel = (joueurActuel + 1) % 2;
 			 
+			 // Piocher une carte 
+			 joueurCourant.piocher();
 			 
 			 //************************Phase de sélection de la carte sur le plateau ou non**********************************
 			 if (cartePlateau != null) {

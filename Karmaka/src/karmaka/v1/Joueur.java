@@ -49,6 +49,11 @@ public class Joueur {
 		viefuture.add(carte);
 	}
 	
+	public void piocher() {
+		main.add(pile.getFirst());
+		pile.remove(pile.getFirst());
+	}
+	
 	// Méthode publique pour pouvoir récupérer une carte dans la main du joueur 
     public Carte getCarteDeMain(String nomCarte) {
         for (Carte carte : main) {
