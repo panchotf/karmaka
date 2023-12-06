@@ -152,6 +152,10 @@ public class Partie {
 				 System.out.println("Vous êtes mort. Appuyez sur entrée pour vous réincarner");
 				 terminal.lireChaine();
 				 
+				 //********************************Comptage des points********************************************************
+				 
+				 
+				 
 				 
 				 //********************************Phase de Reincarnation*****************************************************
 				 joueurCourant.viderOeuvre(karmaka.defausse);

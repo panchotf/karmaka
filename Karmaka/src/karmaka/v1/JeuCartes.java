@@ -62,6 +62,19 @@ public class JeuCartes {
 		//Carte vol2 = new Carte("Vol", Points.Trois, Couleur.BLEU);
 		//tasCartes.add(vol2);
 		
+		Carte vo1 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
+		tasCartes.add(vo1);
+		Carte vo2 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
+		tasCartes.add(vo2);
+		Carte vo3 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
+		tasCartes.add(vo3);
+		Carte vo4 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
+		tasCartes.add(vo4);
+		Carte vo5 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
+		tasCartes.add(vo5);
+		Carte vo6 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
+		tasCartes.add(vo6);
+		
 			}
 	
 	

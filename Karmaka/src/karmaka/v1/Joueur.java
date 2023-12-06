@@ -1,6 +1,7 @@
 package karmaka.v1;
 import java.util.LinkedList;
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class Joueur {
 	
@@ -18,11 +19,16 @@ public class Joueur {
 		this.pile = new LinkedList<>();
 		this.oeuvres = new LinkedList<>();
 		this.viefuture = new LinkedList<>();
-		this.ptsKarm = 0;
+		this.ptsKarm = 4;
 		this.vivant=true;
 	}
 	
 	// le joueur ramasse la carte et l'ajoute en dessous des cartes déjà existantes dans la main
+	
+	public int getptsKarm() {
+		return ptsKarm;
+	}
+	
 	public void ramasserCarte(Carte carte){
 		main.add(carte);
 	}
@@ -91,6 +97,19 @@ public class Joueur {
 		return this.vivant;
 	}
 	
+    public Map<Couleur, Integer> sommeDesPointsParCouleur() {
+        Map<Couleur, Integer> sommePointsParCouleur = new HashMap<>();
+
+        for (Carte carte : oeuvres) {
+            Couleur couleurCarte = carte.getCouleur();
+            Points pointsCarte = carte.getPoints();
+            int valeurPointsCarte = pointsCarte.getpoints();
+            sommePointsParCouleur.merge(couleurCarte, valeurPointsCarte, Integer::sum);
+        }
+
+        return sommePointsParCouleur;
+    }
+	
 	// Méthode publique pour pouvoir récupérer une carte dans la main du joueur 
     public Carte getCarteDeMain(String nomCarte) {
         for (Carte carte : main) {
@@ -117,7 +136,8 @@ public class Joueur {
 		sb.append("MAIN ("+ this.main.size() + ") : " + this.main + " \n ");
 		sb.append("PILE (" + this.pile.size() + ") : " + this.pile + " \n ");
 		sb.append("VIE FUTURE (" + this.viefuture.size() + ") : " + this.viefuture + " \n ");
-		sb.append("OEUVRES (" + this.oeuvres.size() + ") : " + this.oeuvres);
+		sb.append("OEUVRES (" + this.oeuvres.size() + ") : " + this.oeuvres + " \n");
+		sb.append("POINTS : " + sommeDesPointsParCouleur());
 		return sb.toString();
 		
 	}
