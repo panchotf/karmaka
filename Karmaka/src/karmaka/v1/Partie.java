@@ -56,6 +56,13 @@ public class Partie {
 		
 	}
 	
+	//*******************Puiser une carte de la source***********************
+	
+	public void puiserSource(Joueur joueurCourant) {
+		Carte carte = jeu.distribuerUneCarte();
+		joueurCourant.ajouterPile(carte);
+	}
+	
 	
 	// la partie est terminée quand un vainqueur est trouvé
 	public boolean partieTerminee() {
@@ -148,6 +155,14 @@ public class Partie {
 				 
 				 //********************************Phase de Reincarnation*****************************************************
 				 joueurCourant.viderOeuvre(karmaka.defausse);
+				 joueurCourant.mainVieFuture();
+				 
+				 if (joueurCourant.nombreMain()<6) {
+					 for(int i = 0; i < 6 - joueurCourant.nombreMain(); i++) {
+						 karmaka.puiserSource(joueurCourant);
+					 }
+				 }
+				 
 				 joueurCourant.reincarner();
 			 }
 			 

@@ -64,9 +64,19 @@ public class Joueur {
 		viefuture.add(carte);
 	}
 	
+	public void mainVieFuture(){
+		main.addAll(viefuture);
+		viefuture.clear();
+	}
+	
+	
 	public void piocher() {
 		main.add(pile.getFirst());
 		pile.remove(pile.getFirst());
+	}
+	
+	public int nombreMain() {
+		return main.size();
 	}
 	
 	public void tuer() {
