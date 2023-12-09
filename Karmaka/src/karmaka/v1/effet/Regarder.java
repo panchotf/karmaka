@@ -35,7 +35,7 @@ public class Regarder implements Effet {
     public void applyEffet(Partie partie) {
         //Carte carte = getPartie().getDefausse().getFirst();
         //System.out.println(partie.getDefausse());
-        System.out.println(getDepart());
+        System.out.println(getCible());
         //getPartie().getDefausse().remove(carte);
         //partie.getTest().add(carte);
     }
