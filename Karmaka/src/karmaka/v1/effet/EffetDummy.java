@@ -1,4 +1,9 @@
-package karmaka.v1;
+package karmaka.v1.effet;
+
+import karmaka.v1.Carte;
+import karmaka.v1.Effet;
+import karmaka.v1.Joueur;
+import karmaka.v1.Partie;
 
 import java.util.LinkedList;
 

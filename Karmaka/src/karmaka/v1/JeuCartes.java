@@ -1,6 +1,8 @@
 package karmaka.v1;
 
 
+import karmaka.v1.effet.EffetDummy;
+
 import java.util.Collections;
 import java.util.LinkedList;
 
