@@ -18,7 +18,6 @@ public class JeuCartes {
 		this.tasCartes = new LinkedList<Carte>();
 
 		// Instance des effets
-		Effet deplace = new TestEffet(partie, partie.getDefausse());
 		Effet dummy = new EffetDummy(partie, partie.getDefausse(), partie.getTest());
 		
 		// On créé toutes les cartes
