@@ -67,6 +67,14 @@ public class Joueur {
 		return main.isEmpty();
 	}
 	
+	public LinkedList<Carte> getOeuvres() {
+		return oeuvres;
+	}
+	
+	public LinkedList<Carte> getMain() {
+		return main;
+	}
+	
 	public void ajouterOeuvre(Carte carte){
 		oeuvres.add(carte);
 	}

@@ -1,7 +1,10 @@
 package karmaka.v1;
 
+import java.util.LinkedList;
+
 public interface Effet {
 	
-	void effet(int nombre, String depart, String arrivee, String cible, Carte carte);
+	void effet(Partie partie, Joueur joueur, int nombre, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte);
+	void applyEffet(Partie partie);
 
 }

@@ -2,12 +2,20 @@ package karmaka.v1;
 
 import java.util.LinkedList;
 
-public class Carte implements Effet {
+public class Carte {
 	
 	private String nom;
     private Points points;
     private Couleur couleur;
+    private Effet effet;
 
+    public Carte (String nom, Points points, Couleur couleur, Effet effet) {
+        this.setNom(nom);
+    	this.setCouleur(couleur);
+    	this.setPoints(points);
+    	this.effet = effet;
+    }
+    
     public Carte (String nom, Points points, Couleur couleur) {
         this.setNom(nom);
     	this.setCouleur(couleur);
@@ -94,10 +102,12 @@ public class Carte implements Effet {
 
     }
 */
+    
 
+	public void applyEffet(Partie partie) {
 
-	@Override
-	public void effet(int nombre, String depart, String arrivee, String cible, Carte carte) {
-		// TODO Auto-generated method stub
+		effet.applyEffet(partie);
+		
 	}
+	
 }

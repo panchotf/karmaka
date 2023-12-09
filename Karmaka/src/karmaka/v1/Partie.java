@@ -1,6 +1,7 @@
 package karmaka.v1;
 
 import java.util.ArrayList;
+
 import java.util.LinkedList;
 
 import java.util.Iterator;
@@ -12,6 +13,8 @@ public class Partie {
 	private ArrayList<Joueur> listJ;
 	private JeuCartes jeu;
 	private LinkedList<Carte> defausse;
+	private LinkedList<Carte> test;
+	private int joueurActuel; // Pour montrer qui est en train de jouer. En fait la variable prendre que la valeur 0 ou 1. 
 	
 	
 	//******************Constructeur de la partie*************
@@ -19,11 +22,19 @@ public class Partie {
 		// instanciation de la liste des joueurs 
 		listJ = new ArrayList<>();
 		
-		// instanciation du jeu de carte 
-		jeu = new JeuCartes();
-		
+	
 		// instanciation de la defausse 
 		defausse = new LinkedList<>();
+		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
+		defausse.add(transmigration1);
+		
+		test = new LinkedList<>();
+		
+		joueurActuel = 0;
+		
+		// instanciation du jeu de carte 
+		jeu = new JeuCartes(this);
+		
 	}
 	
 	//******************Ajouter un joueur à la liste des joueurs*********
@@ -34,7 +45,39 @@ public class Partie {
 	//*******************Ajouter des cartes dans la défausse**************
 	public void defausser(Carte carte) {
 		defausse.add(carte);
+		test.add(carte);
 	}
+	
+	//******************Getter Defausse************************************
+	
+	public LinkedList<Carte> getDefausse() {
+		return this.defausse;
+	}
+	
+	public LinkedList<Carte> getTest() {
+		return this.test;
+	}
+	
+	//*********************Getter des Joueurs****************************
+	
+	public Joueur getJoueur() {
+		return listJ.get(getJoueurActuel());
+	}
+	
+	
+	public ArrayList<Joueur>  getListJ() {
+		return this.listJ;
+	}
+	//********************Setter et Getter joueuractuel *****************
+	
+	public void setJoueurActuel(int joueurActuel) {
+		this.joueurActuel = joueurActuel;
+	}
+	
+	public int getJoueurActuel() {
+		return joueurActuel;
+	}
+	
 	
     //*****************Mélange et distribution**************************
 	public void distribuerCartes(){
@@ -111,14 +154,13 @@ public class Partie {
 		// System.out.println(karmaka.listJ.get(1));
 		
 		
-		int joueurActuel = 0; // Pour montrer qui est en train de jouer. En fait la variable prendre que la valeur 0 ou 1. 
 		Carte cartePlateau = null; // La carte qui a été joué au tour précédent 
 		
 		while (karmaka.partieTerminee()==false) {
 			
 			 
-			 Joueur joueurCourant = karmaka.listJ.get(joueurActuel);
-			 joueurActuel = (joueurActuel + 1) % 2;
+			 Joueur joueurCourant = karmaka.listJ.get(karmaka.getJoueurActuel());
+			 karmaka.setJoueurActuel((karmaka.getJoueurActuel() +1) %2);
 			 
 			 // Piocher une carte si la pile est non vide 
 			 if (joueurCourant.pileVide()==false) {
@@ -192,6 +234,7 @@ public class Partie {
 				 
 				 	if (saisieClavier.equals("4")) {
 				 		System.out.println(karmaka.defausse);
+				 		System.out.println(karmaka.test);
 				 	}
 				 	else if ((saisieClavier.equals("5") && (joueurCourant.pileVide()==true))) {
 				 		System.out.println("Vous ne pouvez pas passer votre tour car votre pile est vide");
@@ -225,6 +268,8 @@ public class Partie {
 						 Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
 						 cartePlateau = carteChoisie;
 						 joueurCourant.retirerCarte(carteChoisie);
+						 System.out.println("L'effet de la carte s'active. ");
+						 cartePlateau.applyEffet(karmaka);
 				 }
 				 else if (saisieClavier.equals("5")) {
 	
@@ -237,7 +282,7 @@ public class Partie {
 			 
 			 }
 
-			
+		
 		}
 		
 	}
