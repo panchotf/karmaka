@@ -40,5 +40,4 @@ public class Regarder implements Effet {
         //partie.getTest().add(carte);
     }
 }
-{
-}
+
