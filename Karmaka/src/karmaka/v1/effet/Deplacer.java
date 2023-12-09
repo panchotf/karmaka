@@ -7,13 +7,13 @@ import karmaka.v1.Partie;
 
 import java.util.LinkedList;
 
-public class EffetDummy implements Effet {
+public class Deplacer implements Effet {
 	
 	
 	private LinkedList<Carte> depart;
 	private LinkedList<Carte> arrivee;
 
-	public EffetDummy(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
+	public Deplacer(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
 		System.out.println(partie.getDefausse());
 		this.depart = depart;
 		this.arrivee = arrivee;

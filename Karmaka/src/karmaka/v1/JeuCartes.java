@@ -1,7 +1,7 @@
 package karmaka.v1;
 
 
-import karmaka.v1.effet.EffetDummy;
+import karmaka.v1.effet.Deplacer;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -18,66 +18,66 @@ public class JeuCartes {
 		this.tasCartes = new LinkedList<Carte>();
 
 		// Instance des effets
-		Effet dummy = new EffetDummy(partie, partie.getDefausse(), partie.getTest());
+		Effet deplacer = new Deplacer(partie, partie.getDefausse(), partie.getTest());
 		
 		// On créé toutes les cartes
 		
-		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU, dummy);
+		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU, deplacer);
 		tasCartes.add(transmigration1);
-		Carte transmigration2 = new Carte("Transmigration", Points.Un, Couleur.BLEU, dummy);
+		Carte transmigration2 = new Carte("Transmigration", Points.Un, Couleur.BLEU, deplacer);
 		tasCartes.add(transmigration2);
-		Carte transmigration3 = new Carte("Transmigration", Points.Un, Couleur.BLEU, dummy);
+		Carte transmigration3 = new Carte("Transmigration", Points.Un, Couleur.BLEU, deplacer);
 		tasCartes.add(transmigration3);
 		
-		Carte destinee1 = new Carte("Destinee", Points.Un, Couleur.BLEU, dummy);
+		Carte destinee1 = new Carte("Destinee", Points.Un, Couleur.BLEU, deplacer);
 		tasCartes.add(destinee1);
-		Carte destinee2 = new Carte("Destinee", Points.Un, Couleur.BLEU, dummy);
+		Carte destinee2 = new Carte("Destinee", Points.Un, Couleur.BLEU, deplacer);
 		tasCartes.add(destinee2);
-		Carte destinee3 = new Carte("Destinee", Points.Un, Couleur.BLEU, dummy);
+		Carte destinee3 = new Carte("Destinee", Points.Un, Couleur.BLEU, deplacer);
 		tasCartes.add(destinee3);
 		
-		Carte Coupdoeil1 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU, dummy);
+		Carte Coupdoeil1 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(Coupdoeil1);
-		Carte Coupdoeil2 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU, dummy);
+		Carte Coupdoeil2 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(Coupdoeil2);
-		Carte Coupdoeil3 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU, dummy);
+		Carte Coupdoeil3 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(Coupdoeil3);
 		
-		Carte ReveBrises1 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU, dummy);
+		Carte ReveBrises1 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(ReveBrises1);
-		Carte ReveBrises2 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU, dummy);
+		Carte ReveBrises2 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(ReveBrises2);
-		Carte ReveBrises3 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU, dummy);
+		Carte ReveBrises3 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(ReveBrises3);
 		
-		Carte duperie1 = new Carte("Duperie", Points.Trois, Couleur.BLEU, dummy);
+		Carte duperie1 = new Carte("Duperie", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(duperie1);
-		Carte duperie2 = new Carte("Duperie", Points.Trois, Couleur.BLEU, dummy);
+		Carte duperie2 = new Carte("Duperie", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(duperie2);
 		
-		Carte deni1 = new Carte("Déni", Points.Trois, Couleur.BLEU, dummy);
+		Carte deni1 = new Carte("Déni", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(deni1);
-		Carte deni2 = new Carte("Déni", Points.Trois, Couleur.BLEU, dummy);
+		Carte deni2 = new Carte("Déni", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(deni2);
-		Carte deni3 = new Carte("Déni", Points.Trois, Couleur.BLEU, dummy);
+		Carte deni3 = new Carte("Déni", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(deni3);
 		
-		Carte vol1 = new Carte("Vol", Points.Trois, Couleur.BLEU, dummy);
+		Carte vol1 = new Carte("Vol", Points.Trois, Couleur.BLEU, deplacer);
 		tasCartes.add(vol1);
 		//Carte vol2 = new Carte("Vol", Points.Trois, Couleur.BLEU);
 		//tasCartes.add(vol2);
 		
-		Carte vo1 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplace);
+		Carte vo1 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplacer);
 		tasCartes.add(vo1);
-		Carte vo2 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplace);
+		Carte vo2 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplacer);
 		tasCartes.add(vo2);
-		Carte vo3 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplace);
+		Carte vo3 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplacer);
 		tasCartes.add(vo3);
-		Carte vo4 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplace);
+		Carte vo4 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplacer);
 		tasCartes.add(vo4);
-		Carte vo5 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplace);
+		Carte vo5 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplacer);
 		tasCartes.add(vo5);
-		Carte vo6 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplace);
+		Carte vo6 = new Carte("Vo", Points.Trois, Couleur.ROUGE, deplacer);
 		tasCartes.add(vo6);
 		
 			}
