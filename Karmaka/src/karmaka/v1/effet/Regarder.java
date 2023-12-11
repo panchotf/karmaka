@@ -13,23 +13,25 @@ public class Regarder implements Effet {
     private LinkedList<Carte> cible;
     private Boolean opif;
 
-    public Regarder (Boolean opif, Partie partie, LinkedList<Carte> cible) {
+    private int nombre;
+
+    public Regarder (Partie partie, LinkedList<Carte> cible, Boolean opif) {
         this.cible = cible;
         this.opif = opif;
 
     }
 
 
-    public LinkedList<Carte> getCible(){
-        return this.cible;
-    }
+    public LinkedList<Carte> getCible(){return this.cible;    }
 
     public Boolean getOpif(){return this.opif;    }
+
+    public int getNombre(){return this.nombre;    }
 
 
 
     @Override
-    public void effet(Partie partie, Joueur joueur, int nombre, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte){
+    public void effet(Partie partie, Joueur joueur, int nombre, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif) {
 
     }
 
@@ -39,6 +41,7 @@ public class Regarder implements Effet {
         //System.out.println(partie.getDefausse());
         System.out.println(getCible());
         System.out.println(getOpif());
+        System.out.println(getNombre());
         //getPartie().getDefausse().remove(carte);
         //partie.getTest().add(carte);
     }

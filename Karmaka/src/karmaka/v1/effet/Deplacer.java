@@ -32,7 +32,7 @@ public class Deplacer implements Effet {
 	
 	
 	@Override
-	public void effet(Partie partie, Joueur joueur, int nombre, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte){
+	public void effet(Partie partie, Joueur joueur, int nombre, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif){
 
 	}
 	
