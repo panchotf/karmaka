@@ -1,7 +1,7 @@
 package karmaka.v1;
 
 
-import karmaka.v1.effet.Deplacer;
+import karmaka.v1.effet.*;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -19,8 +19,19 @@ public class JeuCartes {
 
 		// Instance des effets
 		Effet deplacer = new Deplacer(partie, partie.getDefausse(), partie.getTest());
+		Effet copier = new Copier(partie, partie.getDefausse());
+//		Effet Regarder = new Regarder(partie, partie.getDefausse());
+
 		
 		// On créé toutes les cartes
+
+//		test
+		Carte test1 = new Carte("test1", Points.Un, Couleur.BLEU, deplacer);
+		test1.addEffet(deplacer);
+		test1.addEffet(copier);
+
+
+
 		
 		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU, deplacer);
 		tasCartes.add(transmigration1);

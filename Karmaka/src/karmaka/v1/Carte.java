@@ -1,5 +1,6 @@
 package karmaka.v1;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Carte {
@@ -9,17 +10,26 @@ public class Carte {
     private Couleur couleur;
     private Effet effet;
 
+    private ArrayList<Effet> effets; // Utilisation d'une liste pour stocker les effets
+
     public Carte (String nom, Points points, Couleur couleur, Effet effet) {
         this.setNom(nom);
     	this.setCouleur(couleur);
     	this.setPoints(points);
     	this.effet = effet;
+        this.effets = new ArrayList<>();
+
     }
     
     public Carte (String nom, Points points, Couleur couleur) {
         this.setNom(nom);
     	this.setCouleur(couleur);
     	this.setPoints(points);
+    }
+
+    // Méthode pour ajouter un effet à la liste
+    public void addEffet(Effet effet) {
+        this.effets.add(effet);
     }
     
     public String getNom() {
