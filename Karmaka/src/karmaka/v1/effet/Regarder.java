@@ -20,13 +20,13 @@ public class Regarder implements Effet {
         this.cible = cible;
         this.opif = opif;
         if(opif){
-            system.out.println(cible.getFirst());
+            System.out.println(cible.getFirst());
         }
         else{
             //afficher une carte au hasard
             Random rand = new Random();
             int indexAleatoire = rand.nextInt(cible.size());
-            system.out.println(cible.get(indexAleatoire));
+            System.out.println(cible.get(indexAleatoire));
         }
 
     }

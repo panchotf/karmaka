@@ -16,11 +16,17 @@ public class JeuCartes {
 	// constructeur du jeu de cartes
 	public JeuCartes(Partie partie){
 		// instancie le jeu de cartes 
-		this.tasCartes = new LinkedList<Carte>();
+		this.tasCartes = new LinkedList<>();
 
 		// Instance des effets
+
+		// deplacer
 		Effet deplacer = new Deplacer(partie, partie.getDefausse(), partie.getTest());
+
+		// copier
 		Effet copier = new Copier(partie, partie.getDefausse());
+
+		//regarder
 		Effet regarder = new Regarder(partie, partie.getDefausse(), true);
 
 		
