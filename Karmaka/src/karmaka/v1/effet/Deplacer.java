@@ -19,8 +19,8 @@ public class Deplacer implements Effet {
 		this.arrivee = arrivee;
 
 	}
-	
-	
+
+
 	public LinkedList<Carte> getDepart(){
 		return this.depart;
 	}
@@ -41,6 +41,7 @@ public class Deplacer implements Effet {
 		//Carte carte = getPartie().getDefausse().getFirst();
 		//System.out.println(partie.getDefausse());
 		System.out.println(getDepart());
+		System.out.println(getArrivee());
 		//getPartie().getDefausse().remove(carte);
 		//partie.getTest().add(carte);
 	}

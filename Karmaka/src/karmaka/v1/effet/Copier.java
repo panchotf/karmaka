@@ -7,15 +7,14 @@ import karmaka.v1.Partie;
 
 import java.util.LinkedList;
 
-public class Regarder implements Effet {
+public class Copier implements Effet {
 
 
     private LinkedList<Carte> cible;
-    private Boolean opif;
 
-    public Regarder (Boolean opif, Partie partie, LinkedList<Carte> cible) {
+    public Copier (Partie partie, LinkedList<Carte> cible) {
+        System.out.println(partie.getDefausse());
         this.cible = cible;
-        this.opif = opif;
 
     }
 
@@ -23,8 +22,7 @@ public class Regarder implements Effet {
     public LinkedList<Carte> getCible(){
         return this.cible;
     }
-
-    public Boolean getOpif(){return this.opif;    }
+    
 
 
 
@@ -38,9 +36,7 @@ public class Regarder implements Effet {
         //Carte carte = getPartie().getDefausse().getFirst();
         //System.out.println(partie.getDefausse());
         System.out.println(getCible());
-        System.out.println(getOpif());
         //getPartie().getDefausse().remove(carte);
         //partie.getTest().add(carte);
     }
 }
-
