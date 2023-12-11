@@ -5,7 +5,7 @@ import karmaka.v1.Effet;
 import karmaka.v1.Joueur;
 import karmaka.v1.Partie;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public class Regarder implements Effet {
 
@@ -16,8 +16,18 @@ public class Regarder implements Effet {
     private int nombre;
 
     public Regarder (Partie partie, LinkedList<Carte> cible, Boolean opif) {
+        System.out.println(partie.getDefausse());
         this.cible = cible;
         this.opif = opif;
+        if(opif){
+            system.out.println(cible.getFirst());
+        }
+        else{
+            //afficher une carte au hasard
+            Random rand = new Random();
+            int indexAleatoire = rand.nextInt(cible.size());
+            system.out.println(cible.get(indexAleatoire));
+        }
 
     }
 
