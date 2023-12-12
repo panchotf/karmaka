@@ -76,10 +76,6 @@ public class Partie {
 	public int getJoueurActuel() {
 		return joueurActuel;
 	}
-
-	public Joueur getJoueurCourant() {
-		return listJ.get(joueurActuel);
-	}
 	
 	
     //*****************Mélange et distribution**************************
