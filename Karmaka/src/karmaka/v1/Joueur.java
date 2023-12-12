@@ -74,6 +74,10 @@ public class Joueur {
 	public LinkedList<Carte> getMain() {
 		return main;
 	}
+
+	public LinkedList<Carte> getViefuture() {
+		return viefuture;
+	}
 	
 	public void ajouterOeuvre(Carte carte){
 		oeuvres.add(carte);
