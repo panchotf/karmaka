@@ -34,7 +34,6 @@ public class Partie {
 		
 		// instanciation du jeu de carte 
 		jeu = new JeuCartes(this);
-		
 	}
 	
 	//******************Ajouter un joueur à la liste des joueurs*********
@@ -76,6 +75,10 @@ public class Partie {
 	
 	public int getJoueurActuel() {
 		return joueurActuel;
+	}
+
+	public Joueur getJoueurCourant() {
+		return listJ.get(joueurActuel);
 	}
 	
 	
