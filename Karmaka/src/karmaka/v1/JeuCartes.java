@@ -12,6 +12,7 @@ public class JeuCartes {
 	// attributs d'un jeu de cartes
 	private LinkedList<Carte> tasCartes;
 	public static final int nbrCartes = 64;
+
 	
 	// constructeur du jeu de cartes
 	public JeuCartes(Partie partie){
@@ -22,6 +23,8 @@ public class JeuCartes {
 
 		// deplacer
 		Effet deplacer = new Deplacer(partie, partie.getDefausse(), partie.getTest());
+
+		Effet deplacerVfToMain = new Deplacer(partie, partie.getJoueurCourant().getViefuture(), partie.getJoueurCourant().getMain());
 
 		// copier
 		Effet copier = new Copier(partie, partie.getDefausse());
@@ -44,10 +47,13 @@ public class JeuCartes {
 
 		
 		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
+		transmigration1.addEffet(deplacerVfToMain);
 		tasCartes.add(transmigration1);
 		Carte transmigration2 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
+		transmigration2.addEffet(deplacerVfToMain);
 		tasCartes.add(transmigration2);
 		Carte transmigration3 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
+		transmigration3.addEffet(deplacerVfToMain);
 		tasCartes.add(transmigration3);
 		
 		Carte destinee1 = new Carte("Destinee", Points.Un, Couleur.BLEU);
