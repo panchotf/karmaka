@@ -24,7 +24,7 @@ public class JeuCartes {
 		// deplacer
 		Effet deplacer = new Deplacer(partie, partie.getDefausse(), partie.getTest());
 
-		Effet deplacerVfToMain = new Deplacer(partie, partie.getJoueurCourant().getViefuture(), partie.getJoueurCourant().getMain());
+		Effet deplacerVfToMain = new Deplacer(partie, partie.getJoueur().getViefuture(), partie.getJoueur().getMain());
 
 		// copier
 		Effet copier = new Copier(partie, partie.getDefausse());
