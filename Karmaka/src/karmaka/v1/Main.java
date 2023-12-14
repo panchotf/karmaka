@@ -24,7 +24,7 @@ public class Main {
         karmaka.ajouterUnJoueur(Joueur2);
 
         // on affiche le jeu de cartes
-        System.out.println("Les cartes du jeu sont : " + karmaka.jeu);
+        System.out.println("Les cartes du jeu sont : " + karmaka.getJeu());
         System.out.println("Appuyez sur Entrée pour distribuer les cartes et commencer le jeu !");
         saisieClavier = terminal.lireChaine();
 
@@ -41,7 +41,7 @@ public class Main {
         while (karmaka.partieTerminee()==false) {
 
 
-            Joueur joueurCourant = karmaka.listJ.get(karmaka.getJoueurActuel());
+            Joueur joueurCourant = karmaka.getListJ().get(karmaka.getJoueurActuel());
             karmaka.setJoueurActuel((karmaka.getJoueurActuel() +1) %2);
 
             // Piocher une carte si la pile est non vide
@@ -91,7 +91,7 @@ public class Main {
 
 
                 //********************************Phase de Reincarnation*****************************************************
-                joueurCourant.viderOeuvre(karmaka.defausse);
+                joueurCourant.viderOeuvre(karmaka.getDefausse());
                 joueurCourant.mainVieFuture();
 
                 if (joueurCourant.nombreMain()<6) {
@@ -115,8 +115,8 @@ public class Main {
                     saisieClavier = terminal.lireChaine();
 
                     if (saisieClavier.equals("4")) {
-                        System.out.println(karmaka.defausse);
-                        System.out.println(karmaka.test);
+                        System.out.println(karmaka.getDefausse());
+                        System.out.println(karmaka.getTest());
                     }
                     else if ((saisieClavier.equals("5") && (joueurCourant.pileVide()==true))) {
                         System.out.println("Vous ne pouvez pas passer votre tour car votre pile est vide");

@@ -67,6 +67,13 @@ public class Partie {
 	public ArrayList<Joueur>  getListJ() {
 		return this.listJ;
 	}
+
+	//*******************Getter du jeu de cartes*************************
+	public JeuCartes getJeu() {
+		return this.jeu;
+	}
+
+
 	//********************Setter et Getter joueuractuel *****************
 	
 	public void setJoueurActuel(int joueurActuel) {
