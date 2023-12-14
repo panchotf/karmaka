@@ -32,6 +32,8 @@ public class JeuCartes {
 		//regarder
 		Effet regarder = new Regarder(partie, partie.getDefausse(), true);
 
+		Effet regaderVf = new Regarder(partie, partie.getJoueur().getViefuture(), false);
+
 		
 		// On créé toutes les cartes
 
@@ -40,7 +42,9 @@ public class JeuCartes {
 		test1.addEffet(regarder);
 		test1.addEffet(3, deplacer);
 		test1.addEffet(copier);
+		test1.addEffet(regaderVf);
 		tasCartes.add(test1);
+
 
 
 
