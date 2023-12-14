@@ -16,12 +16,17 @@ public class Main {
         nomJoueur2= terminal.lireChaine();
 
         // création de deux joueurs
-        Joueur Joueur1 = new Joueur(nomJoueur1);
-        Joueur Joueur2 = new Joueur(nomJoueur2);
+        /*Joueur Joueur1 = new Joueur(nomJoueur1);
+        Joueur Joueur2 = new Joueur(nomJoueur2);*/
 
         // on ajoute les 2 joueurs à la partie
-        karmaka.ajouterUnJoueur(Joueur1);
-        karmaka.ajouterUnJoueur(Joueur2);
+        karmaka.ajouterUnJoueur(new Joueur(nomJoueur1));
+        karmaka.ajouterUnJoueur(new Joueur(nomJoueur2));
+
+
+
+        /*karmaka.ajouterUnJoueur(Joueur1);
+        karmaka.ajouterUnJoueur(Joueur2);*/
 
         // on affiche le jeu de cartes
         System.out.println("Les cartes du jeu sont : " + karmaka.getJeu());

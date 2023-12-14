@@ -24,7 +24,7 @@ public class JeuCartes {
 		// deplacer
 		Effet deplacer = new Deplacer(partie, partie.getDefausse(), partie.getTest());
 
-		Effet deplacerVfToMain = new Deplacer(partie, partie.getJoueur().getViefuture(), partie.getJoueur().getMain());
+		//Effet deplacerVfToMain = new Deplacer(partie, partie.getJoueur().getViefuture(), partie.getJoueur().getMain());
 
 		// copier
 		Effet copier = new Copier(partie, partie.getDefausse());
@@ -32,25 +32,25 @@ public class JeuCartes {
 		//regarder
 		Effet regarder = new Regarder(partie, partie.getDefausse(), true);
 
-		Effet regaderVf = new Regarder(partie, partie.getJoueur().getViefuture(), false);
+		//Effet regaderVf = new Regarder(partie, partie.getJoueur().getViefuture(), false);
 
 		
 		// On créé toutes les cartes
 
 //		test
-		Carte test1 = new Carte("test1", Points.Un, Couleur.BLEU);
+		/*Carte test1 = new Carte("test1", Points.Un, Couleur.BLEU);
 		test1.addEffet(regarder);
 		test1.addEffet(3, deplacer);
 		test1.addEffet(copier);
 		test1.addEffet(regaderVf);
-		tasCartes.add(test1);
+		tasCartes.add(test1);*/
 
 
 
 
 
 		
-		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
+		/*Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
 		transmigration1.addEffet(deplacerVfToMain);
 		tasCartes.add(transmigration1);
 		Carte transmigration2 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
@@ -58,7 +58,7 @@ public class JeuCartes {
 		tasCartes.add(transmigration2);
 		Carte transmigration3 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
 		transmigration3.addEffet(deplacerVfToMain);
-		tasCartes.add(transmigration3);
+		tasCartes.add(transmigration3);*/
 		
 		Carte destinee1 = new Carte("Destinee", Points.Un, Couleur.BLEU);
 		tasCartes.add(destinee1);

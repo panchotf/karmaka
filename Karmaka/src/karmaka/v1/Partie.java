@@ -21,6 +21,10 @@ public class Partie {
 	public Partie() {
 		// instanciation de la liste des joueurs 
 		listJ = new ArrayList<>();
+
+		//new instanciation joueurs
+		Joueur joueur1 = new Joueur("Joueur 1");
+		Joueur joueur2 = new Joueur("Joueur 2");
 		
 	
 		// instanciation de la defausse 
