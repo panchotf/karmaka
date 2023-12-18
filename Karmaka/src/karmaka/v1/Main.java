@@ -20,8 +20,10 @@ public class Main {
         Joueur Joueur2 = new Joueur(nomJoueur2);*/
 
         // on ajoute les 2 joueurs à la partie
-        karmaka.ajouterUnJoueur(new Joueur(nomJoueur1));
-        karmaka.ajouterUnJoueur(new Joueur(nomJoueur2));
+        /*karmaka.ajouterUnJoueur(new Joueur(nomJoueur1));
+        karmaka.ajouterUnJoueur(new Joueur(nomJoueur2));*/
+
+        //assoier les joueurs créés dans partie et les noms saisis
 
 
 

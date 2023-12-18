@@ -19,7 +19,7 @@ public class Regarder implements Effet {
         System.out.println(partie.getDefausse());
         this.cible = cible;
         this.opif = opif;
-        if(opif){
+        /*if(opif){
             System.out.println(cible.getFirst());
         }
         else{
@@ -27,7 +27,7 @@ public class Regarder implements Effet {
             Random rand = new Random();
             int indexAleatoire = rand.nextInt(cible.size());
             System.out.println(cible.get(indexAleatoire));
-        }
+        }*/
 
     }
 

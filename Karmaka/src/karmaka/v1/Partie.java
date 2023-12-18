@@ -25,6 +25,10 @@ public class Partie {
 		//new instanciation joueurs
 		Joueur joueur1 = new Joueur("Joueur 1");
 		Joueur joueur2 = new Joueur("Joueur 2");
+
+		// ajout des joueurs dans la liste des joueurs
+		listJ.add(joueur1);
+		listJ.add(joueur2);
 		
 	
 		// instanciation de la defausse 
