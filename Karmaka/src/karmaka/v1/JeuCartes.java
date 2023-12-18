@@ -45,12 +45,26 @@ public class JeuCartes {
 		test1.addEffet(regaderVf);
 		tasCartes.add(test1);
 
+		Carte test2 = new Carte("test2", Points.Un, Couleur.BLEU);
+		test2.addEffet(regarder);
+		test2.addEffet(3, deplacerVfToMain);
+		test2.addEffet(copier);
+		tasCartes.add(test2);
+
+		//création de 12 autres cartes test
+		for(int i=3; i<15; i++){
+			Carte test = new Carte("test"+i, Points.Un, Couleur.BLEU);
+			test.addEffet(regarder);
+			test.addEffet(3, deplacer);
+			test.addEffet(copier);
+			tasCartes.add(test);
+		}
 
 
 
 
 		
-		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
+		/*Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
 		transmigration1.addEffet(deplacerVfToMain);
 		tasCartes.add(transmigration1);
 		Carte transmigration2 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
@@ -110,7 +124,7 @@ public class JeuCartes {
 		tasCartes.add(vo5);
 		Carte vo6 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
 		tasCartes.add(vo6);
-		
+		*/
 	}
 	
 	

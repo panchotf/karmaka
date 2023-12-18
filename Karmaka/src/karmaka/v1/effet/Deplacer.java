@@ -4,6 +4,8 @@ import karmaka.v1.Carte;
 import karmaka.v1.Effet;
 import karmaka.v1.Joueur;
 import karmaka.v1.Partie;
+import karmaka.v1.Terminal;
+
 
 import java.util.LinkedList;
 
@@ -12,6 +14,9 @@ public class Deplacer implements Effet {
 	
 	private LinkedList<Carte> depart;
 	private LinkedList<Carte> arrivee;
+
+	private String saisieClavier;
+	private Terminal terminal = new Terminal();
 
 	public Deplacer(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
 		System.out.println(partie.getDefausse());
@@ -38,11 +43,24 @@ public class Deplacer implements Effet {
 	
 	@Override
 	public void applyEffet(Partie partie) {
+		System.out.println(depart);//affiche la liste des cartes du joueur
+
+		while (partie.getJoueur().getCarte(depart, saisieClavier)==null) {//tant que la carte n'est pas dans la main du joueur
+			System.out.println("Sélectionnez une carte à jouer : ");//on demande au joueur de choisir une carte
+			saisieClavier = terminal.lireChaine();
+		}
+		Carte carteChoisie = partie.getJoueur().getCarte(depart, saisieClavier);//on récupère la carte choisie
+		//on ajoute la carte à la liste des cartes arrivée
+
+		partie.getJoueur().removeCarte(depart, saisieClavier);//on enlève la carte de la main du joueur
+		System.out.println("L'effet de la carte s'active. ");
+	}
+
 		//Carte carte = getPartie().getDefausse().getFirst();
 		//System.out.println(partie.getDefausse());
-		System.out.println(getDepart());
-		System.out.println(getArrivee());
+		//System.out.println(getDepart());
+		//System.out.println(getArrivee());
 		//getPartie().getDefausse().remove(carte);
 		//partie.getTest().add(carte);
-	}
 }
+
