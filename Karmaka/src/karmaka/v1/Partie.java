@@ -70,6 +70,11 @@ public class Partie {
 	public Joueur getJoueur() {
 		return listJ.get(getJoueurActuel());
 	}
+
+	//methode pour récupérer l'adversaire
+	public Joueur getAdversaire() {
+		return listJ.get((getJoueurActuel()+1)%2);
+	}
 	
 	
 	public ArrayList<Joueur>  getListJ() {
