@@ -87,6 +87,27 @@ public class Partie {
 	}
 
 
+	//*******************Getter de cartes*******************************
+	public Carte getCarte(LinkedList<Carte> tas, String nomCarte) {
+		for (Carte carte : tas) {
+			if (carte.getNom().equals(nomCarte)) {
+				return carte;
+			}
+		}
+		// Gestion d'erreur : la carte n'a pas été trouvée dans le tas
+		return null;
+	}
+
+	public void removeCarte(LinkedList<Carte> tas, String nomCarte) {
+		Carte carte = getCarte(tas, nomCarte);
+		tas.remove(carte);
+	}
+
+	public void addCarte(LinkedList<Carte> tas, Carte carte) {
+		tas.add(carte);
+	}
+
+
 	//********************Setter et Getter joueuractuel *****************
 	
 	public void setJoueurActuel(int joueurActuel) {

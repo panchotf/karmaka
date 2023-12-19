@@ -45,15 +45,16 @@ public class Deplacer implements Effet {
 	public void applyEffet(Partie partie) {
 		System.out.println(depart);//affiche la liste des cartes du joueur
 
-		while (partie.getJoueur().getCarte(depart, saisieClavier)==null) {//tant que la carte n'est pas dans la main du joueur
+		while (partie.getCarte(depart, saisieClavier)==null) {//tant que la carte n'est pas dans la main du joueur
 			System.out.println("Sélectionnez une carte à jouer : ");//on demande au joueur de choisir une carte
 			saisieClavier = terminal.lireChaine();
 		}
-		Carte carteChoisie = partie.getJoueur().getCarte(depart, saisieClavier);//on récupère la carte choisie
-		//on ajoute la carte à la liste des cartes arrivée
+		Carte carteChoisie = partie.getCarte(depart, saisieClavier);//on récupère la carte choisie
 
-		partie.getJoueur().removeCarte(depart, saisieClavier);//on enlève la carte de la main du joueur
-		System.out.println("L'effet de la carte s'active. ");
+		partie.addCarte(arrivee, carteChoisie);//on ajoute la carte à la liste des cartes arrivée
+
+		partie.removeCarte(depart, saisieClavier);//on enlève la carte de la main du joueur
+		System.out.println("La carte a bien été déplacée.");
 	}
 
 		//Carte carte = getPartie().getDefausse().getFirst();

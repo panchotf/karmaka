@@ -126,6 +126,8 @@ public class JeuCartes {
 		tasCartes.add(vo6);
 		*/
 	}
+
+
 	
 	
 	// retire la premiére carte du tas de cartes (la carte du dessus)

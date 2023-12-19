@@ -159,22 +159,6 @@ public class Joueur {
         return null;
     }
 
-	//Méthode publique pour pouvoir récupérer une carte dans un tas de cartes
-	public Carte getCarte(LinkedList<Carte> tas, String nomCarte) {
-		for (Carte carte : tas) {
-			if (carte.getNom().equals(nomCarte)) {
-				return carte;
-			}
-		}
-		// Gestion d'erreur : la carte n'a pas été trouvée dans le tas
-		return null;
-	}
-
-	//methode pour retirer une carte d'un tas de cartes
-	public void removeCarte(LinkedList<Carte> tas, String nomCarte) {
-		Carte carte = getCarte(tas, nomCarte);
-		tas.remove(carte);
-	}
 	
 	// le joueur gagne s'il atteint 7 points de karma 
 	public boolean isWinner(){
