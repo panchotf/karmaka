@@ -13,7 +13,7 @@ public class Copier implements Effet {
     private LinkedList<Carte> cible;
 
     public Copier (Partie partie, LinkedList<Carte> cible) {
-        System.out.println(partie.getDefausse());
+//        System.out.println(partie.getDefausse());
         this.cible = cible;
 
     }

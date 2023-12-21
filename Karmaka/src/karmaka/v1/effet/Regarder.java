@@ -16,7 +16,7 @@ public class Regarder implements Effet {
     private int nombre;
 
     public Regarder (Partie partie, LinkedList<Carte> cible, Boolean opif) {
-        System.out.println(partie.getDefausse());
+//        System.out.println(partie.getDefausse());
         this.cible = cible;
         this.opif = opif;
         /*if(opif){

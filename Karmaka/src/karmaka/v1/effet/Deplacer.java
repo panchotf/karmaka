@@ -19,7 +19,7 @@ public class Deplacer implements Effet {
 	private Terminal terminal = new Terminal();
 
 	public Deplacer(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
-		System.out.println(partie.getDefausse());
+//		System.out.println(partie.getDefausse());
 		this.depart = depart;
 		this.arrivee = arrivee;
 
