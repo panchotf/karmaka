@@ -48,7 +48,7 @@ public class Deplacer implements Effet {
 		System.out.println(depart);//affiche la liste des cartes du joueur
 
 		while (partie.getCarte(depart, saisieClavier)==null) {//tant que la carte n'est pas dans la main du joueur
-			System.out.println("Sélectionnez la carte à déplacer vers votre"+ depart);//on demande au joueur de choisir une carte
+			System.out.println("Sélectionnez la carte à déplacée ");//on demande au joueur de choisir une carte
 			saisieClavier = terminal.lireChaine();
 		}
 		Carte carteChoisie = partie.getCarte(depart, saisieClavier);//on récupère la carte choisie
@@ -57,6 +57,8 @@ public class Deplacer implements Effet {
 
 		partie.removeCarte(depart, saisieClavier);//on enlève la carte de la main du joueur
 		System.out.println("La carte a bien été déplacée.");
+		System.out.println(depart);//on affiche la liste des cartes depart
+		System.out.println(arrivee);//on affiche la liste des cartes arrivée
 	}
 
 		//Carte carte = getPartie().getDefausse().getFirst();

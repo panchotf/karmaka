@@ -58,6 +58,10 @@ public class Joueur {
 	public void retirerPile(Carte carte){
 		pile.remove(carte);
 	}
+
+	public LinkedList<Carte> getPile() {
+		return pile;
+	}
 	
 	public boolean pileVide(){
 		return pile.isEmpty();
@@ -77,6 +81,10 @@ public class Joueur {
 
 	public LinkedList<Carte> getViefuture() {
 		return viefuture;
+	}
+
+	public Carte getOeuvreExposee() {
+		return oeuvres.getLast();
 	}
 	
 	public void ajouterOeuvre(Carte carte){
@@ -180,5 +188,6 @@ public class Joueur {
 		return sb.toString();
 		
 	}
-	
+
+
 }

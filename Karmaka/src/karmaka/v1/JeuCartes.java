@@ -22,11 +22,39 @@ public class JeuCartes {
 		// Instance des effets
 
 		// deplacer
-		Effet deplacer = new Deplacer(partie, partie.getDefausse(), partie.getTest());
 
 		Effet deplacerVfToMain = new Deplacer(partie, partie.getAdversaire().getViefuture(), partie.getJoueur().getMain());
 
 		Effet deplacerMainToVf = new Deplacer(partie, partie.getJoueur().getMain(), partie.getJoueur().getViefuture());
+
+		Effet deplacerVftoVf = new Deplacer(partie, partie.getAdversaire().getViefuture(), partie.getJoueur().getViefuture());
+
+		Effet deplacerMainToMain = new Deplacer(partie, partie.getJoueur().getMain(), partie.getAdversaire().getMain());
+
+		Effet deplacerMaintoFosse = new Deplacer(partie, partie.getJoueur().getMain(), partie.getDefausse());
+
+		Effet deplacerOuvreToMain = new Deplacer(partie, partie.getAdversaire().getOeuvreExposee(), partie.getJoueur().getMain());
+
+		Effet puiserSource = new Deplacer(partie, partie.getJeu().getTasCartes(), partie.getJoueur().getPile());
+
+		Effet deplacerFosseToVf = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getViefuture());
+
+		Effet deplacerFosseToMain = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getMain());
+
+		Effet deplacerSourceToPile = new Deplacer(partie, partie.getJeu().getTasCartes(), partie.getAdversaire().getPile());
+
+		Effet deplacerMaintoOuvre = new Deplacer(partie, partie.getJoueur().getMain(), partie.getAdversaire().getOeuvres());
+
+		Effet deplacerMainAdvToFosse = new Deplacer(partie, partie.getAdversaire().getMain(), partie.getDefausse());
+
+		Effet deplacerVfToFosse = new Deplacer(partie, partie.getAdversaire().getViefuture(), partie.getDefausse());
+
+		Effet deplacerOuvreToFosse = new Deplacer(partie, partie.getAdversaire().getOeuvreExposee(), partie.getDefausse());
+
+
+
+
+
 
 		// copier
 		Effet copier = new Copier(partie, partie.getDefausse());
@@ -35,6 +63,14 @@ public class JeuCartes {
 		Effet regarder = new Regarder(partie, partie.getDefausse(), true);
 
 		Effet regaderVf = new Regarder(partie, partie.getJoueur().getViefuture(), false);
+
+		Effet regarderMain = new Regarder(partie, partie.getAdversaire().getMain(), false);
+
+		Effet regarderSource = new Regarder(partie, partie.getJeu().getTasCartes(), false);
+
+
+
+
 
 		
 		// On créé toutes les cartes
