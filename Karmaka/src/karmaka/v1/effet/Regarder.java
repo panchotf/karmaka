@@ -49,11 +49,21 @@ public class Regarder implements Effet {
     public void applyEffet(Partie partie) {
         //Carte carte = getPartie().getDefausse().getFirst();
         //System.out.println(partie.getDefausse());
-        System.out.println(getCible());
+        /*System.out.println(getCible());
         System.out.println(getOpif());
-        System.out.println(getNombre());
+        System.out.println(getNombre());*/
         //getPartie().getDefausse().remove(carte);
         //partie.getTest().add(carte);
+
+        if(opif){
+            //afficher une carte au hasard
+            Random rand = new Random();
+            int indexAleatoire = rand.nextInt(cible.size());
+            System.out.println(cible.get(indexAleatoire));
+        } else{
+            System.out.println(cible.getFirst());
+
+        }
     }
 }
 

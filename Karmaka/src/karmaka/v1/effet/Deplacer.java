@@ -10,8 +10,9 @@ import karmaka.v1.Terminal;
 import java.util.LinkedList;
 
 public class Deplacer implements Effet {
-	
-	
+
+	private final Partie partie;
+
 	private LinkedList<Carte> depart;
 	private LinkedList<Carte> arrivee;
 
@@ -20,6 +21,7 @@ public class Deplacer implements Effet {
 
 	public Deplacer(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
 //		System.out.println(partie.getDefausse());
+		this.partie = partie;
 		this.depart = depart;
 		this.arrivee = arrivee;
 
@@ -46,7 +48,7 @@ public class Deplacer implements Effet {
 		System.out.println(depart);//affiche la liste des cartes du joueur
 
 		while (partie.getCarte(depart, saisieClavier)==null) {//tant que la carte n'est pas dans la main du joueur
-			System.out.println("Sélectionnez une carte à jouer : ");//on demande au joueur de choisir une carte
+			System.out.println("Sélectionnez la carte à déplacer vers votre"+ depart);//on demande au joueur de choisir une carte
 			saisieClavier = terminal.lireChaine();
 		}
 		Carte carteChoisie = partie.getCarte(depart, saisieClavier);//on récupère la carte choisie

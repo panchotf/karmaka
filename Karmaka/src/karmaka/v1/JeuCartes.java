@@ -26,6 +26,8 @@ public class JeuCartes {
 
 		Effet deplacerVfToMain = new Deplacer(partie, partie.getAdversaire().getViefuture(), partie.getJoueur().getMain());
 
+		Effet deplacerMainToVf = new Deplacer(partie, partie.getJoueur().getMain(), partie.getJoueur().getViefuture());
+
 		// copier
 		Effet copier = new Copier(partie, partie.getDefausse());
 
@@ -40,23 +42,21 @@ public class JeuCartes {
 //		test
 		Carte test1 = new Carte("test1", Points.Un, Couleur.BLEU);
 		test1.addEffet(regarder);
-		test1.addEffet(3, deplacer);
+		test1.addEffet(3, deplacerMainToVf);
 		test1.addEffet(copier);
 		test1.addEffet(regaderVf);
 		tasCartes.add(test1);
 
 		Carte test2 = new Carte("test2", Points.Un, Couleur.BLEU);
 		test2.addEffet(regarder);
-		test2.addEffet(3, deplacerVfToMain);
+		test2.addEffet(3, deplacerMainToVf);
 		test2.addEffet(copier);
 		tasCartes.add(test2);
 
 		//création de 12 autres cartes test
 		for(int i=3; i<15; i++){
 			Carte test = new Carte("test"+i, Points.Un, Couleur.BLEU);
-			test.addEffet(regarder);
-			test.addEffet(3, deplacer);
-			test.addEffet(copier);
+			test.addEffet(3, deplacerMainToVf);
 			tasCartes.add(test);
 		}
 
