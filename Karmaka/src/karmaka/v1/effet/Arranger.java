@@ -40,6 +40,7 @@ public class Arranger implements Effet {
         this.cible = cible;
         this.arrivee = arrivee;
         this.obligatoire = obligatoire;
+        this.depot = new LinkedList<Carte>();
 
     }
 
