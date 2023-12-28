@@ -205,8 +205,8 @@ public class JeuCartes {
 		tasCartes.add(Longevite3);
 
 		Carte Semis1 = new Carte("Semis", Points.Deux, Couleur.VERT);
-		Semis1.addEffet(2, puiserSource;
-		Semis1.addEffet(2,deplacerMainToVf));
+		Semis1.addEffet(2, puiserSource);
+		Semis1.addEffet(2,deplacerMainToVf);
 		tasCartes.add(Semis1);
 		Carte Semis2 = new Carte("Semis", Points.Deux, Couleur.VERT);
 		Semis2.addEffet(2, puiserSource);

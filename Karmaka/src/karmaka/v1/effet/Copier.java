@@ -32,9 +32,6 @@ public class Copier implements Effet {
 
     @Override
     public void applyEffet(Partie partie) {
-        cible.applyEffet();
-
-
-
+        cible.applyEffet(partie);
     }
 }
