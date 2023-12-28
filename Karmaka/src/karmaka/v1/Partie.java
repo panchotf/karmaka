@@ -147,9 +147,7 @@ public class Partie {
 	}
 
 	//getter Source
-	public LinkedList<Carte> getSource(){
-		return source;
-	}
+
 	
 	
 	// la partie est terminée quand un vainqueur est trouvé

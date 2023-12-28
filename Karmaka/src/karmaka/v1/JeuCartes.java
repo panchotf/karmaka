@@ -35,13 +35,13 @@ public class JeuCartes {
 
 		Effet puiserOuvreToMain = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getJoueur().getMain());
 
-		Effet puiserSource = new Puiser(partie, partie.getJeu(), partie.getJoueur().getPile());
+		Effet puiserSource = new Puiser(partie, getTasCartes(), partie.getJoueur().getPile());
 
 		Effet deplacerFosseToVf = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getViefuture());
 
 		Effet deplacerFosseToMain = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getMain());//peut etre puiser
 
-		Effet deplacerSourceToPile = new Puiser(partie, partie.getJeu(), partie.getAdversaire().getPile());
+		Effet deplacerSourceToPile = new Puiser(partie, getTasCartes(), partie.getAdversaire().getPile());
 
 		Effet deplacerMaintoOuvre = new Deplacer(partie, partie.getJoueur().getMain(), partie.getAdversaire().getOeuvres());
 
@@ -66,10 +66,10 @@ public class JeuCartes {
 
 		Effet regarderMain = new Regarder(partie, partie.getAdversaire().getMain());
 
-		Effet regarderSource = new Regarder(partie, partie.getJeu().getTasCartes());
+		Effet regarderSource = new Regarder(partie, getTasCartes());
 
 
-		//Effet ArrangerTest = new Arranger(partie, 3, 2, partie.getAdversaire().getMain(), partie.getJoueur().getMain(), true, false);
+		Effet ArrangerTest = new Arranger(partie, 3, 2, partie.getAdversaire().getMain(), partie.getJoueur().getMain(), true, false);
 
 
 
@@ -95,7 +95,7 @@ public class JeuCartes {
 		//création de 12 autres cartes test
 		for(int i=3; i<15; i++){
 			Carte test = new Carte("test"+i, Points.Un, Couleur.BLEU);
-			//test.addEffet(ArrangerTest);
+			test.addEffet(ArrangerTest);
 //			test.addEffet(3, deplacerMainToVf);
 			tasCartes.add(test);
 		}
