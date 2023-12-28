@@ -37,6 +37,8 @@ public class JeuCartes {
 
 		Effet puiserSource = new Puiser(partie, getTasCartes(), partie.getJoueur().getPile());
 
+		Effet puiserSourceAdv = new Puiser(partie, getTasCartes(), partie.getAdversaire().getPile());
+
 		Effet deplacerFosseToVf = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getViefuture());
 
 		Effet deplacerFosseToMain = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getMain());//peut etre puiser
@@ -53,11 +55,13 @@ public class JeuCartes {
 
 
 
+		//******************************** copier*****************************
 
+		Effet copierDeni = new Copier(partie, partie.getDefausse().getLast());
 
+		//*********************************rejouer*****************************
 
-		// copier
-		Effet copier = new Copier(partie, partie.getDefausse());
+		Effet rejouer = new Rejouer(partie, partie.getJoueur().getMain());
 
 		//regarder
 		Effet regarder = new Regarder(partie, partie.getDefausse());
@@ -79,34 +83,13 @@ public class JeuCartes {
 
 
 
-		
-		// On créé toutes les cartes
 
-//		test
-		Carte test1 = new Carte("test1", Points.Un, Couleur.BLEU);
-		test1.addEffet(regarder);
-		test1.addEffet(3, deplacerMainToVf);
-		test1.addEffet(copier);
-		test1.addEffet(regaderVf);
-		tasCartes.add(test1);
 
-		Carte test2 = new Carte("test2", Points.Un, Couleur.BLEU);
-		test2.addEffet(regarder);
-		test2.addEffet(3, deplacerMainToVf);
-		test2.addEffet(copier);
-		tasCartes.add(test2);
-
-		//création de 12 autres cartes test
-		for(int i=3; i<15; i++){
-			Carte test = new Carte("test"+i, Points.Un, Couleur.BLEU);
-			test.addEffet(arrangerTest);
-//			test.addEffet(3, deplacerMainToVf);
-			tasCartes.add(test);
-		}
+		//Création des cartes
 
 
 
-
+//*****************************************Cartes Bleus******************************************************
 		
 		Carte Transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
 		Transmigration1.addEffet(deplacerVfToMain);
@@ -157,34 +140,100 @@ public class JeuCartes {
 		
 		Carte Deni1 = new Carte("Déni", Points.Trois, Couleur.BLEU);
 		Deni1.addEffet(deplacerMaintoFosse);
-
+		Deni1.addEffet(copierDeni);
 		tasCartes.add(Deni1);
 		Carte Deni2 = new Carte("Déni", Points.Trois, Couleur.BLEU);
 		Deni2.addEffet(deplacerMaintoFosse);
-
+		Deni2.addEffet(copierDeni);
 		tasCartes.add(Deni2);
 		Carte Deni3 = new Carte("Déni", Points.Trois, Couleur.BLEU);
 		Deni3.addEffet(deplacerMaintoFosse);
-
+		Deni3.addEffet(copierDeni);
 		tasCartes.add(Deni3);
 		
 		Carte vol1 = new Carte("Vol", Points.Trois, Couleur.BLEU);
+		vol1.addEffet(puiserOuvreToMain);
 		tasCartes.add(vol1);
-		//Carte vol2 = new Carte("Vol", Points.Trois, Couleur.BLEU);
-		//tasCartes.add(vol2);
-		
-		Carte vo1 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
-		tasCartes.add(vo1);
-		Carte vo2 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
-		tasCartes.add(vo2);
-		Carte vo3 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
-		tasCartes.add(vo3);
-		Carte vo4 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
-		tasCartes.add(vo4);
-		Carte vo5 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
-		tasCartes.add(vo5);
-		Carte vo6 = new Carte("Vo", Points.Trois, Couleur.ROUGE);
-		tasCartes.add(vo6);
+		Carte vol2 = new Carte("Vol", Points.Trois, Couleur.BLEU);
+		vol2.addEffet(puiserOuvreToMain);
+		tasCartes.add(vol2);
+
+
+		//*********************************Cartes Vertes**************************************************************
+
+		Carte Lendemain1 = new Carte("Lendemain", Points.Un, Couleur.VERT);
+		Lendemain1.addEffet(deplacerSourceToPile);
+		Lendemain1.addEffet(rejouer);
+		tasCartes.add(Lendemain1);
+		Carte Lendemain2 = new Carte("Lendemain", Points.Un, Couleur.VERT);
+		Lendemain2.addEffet(deplacerSourceToPile);
+		Lendemain2.addEffet(rejouer);
+		tasCartes.add(Lendemain2);
+		Carte Lendemain3 = new Carte("Lendemain", Points.Un, Couleur.VERT);
+		Lendemain3.addEffet(deplacerSourceToPile);
+		Lendemain3.addEffet(rejouer);
+		tasCartes.add(Lendemain3);
+
+		Carte Recyclage1 = new Carte("Recyclage", Points.Un, Couleur.VERT);
+		Recyclage1.addEffet(deplacerFosseToVf); //on ne peut chosir que parmi les 3 dernieres cartes de la fosse normalement
+		tasCartes.add(Recyclage1);
+		Carte Recyclage2 = new Carte("Recyclage", Points.Un, Couleur.VERT);
+		Recyclage2.addEffet(deplacerFosseToVf);
+		tasCartes.add(Recyclage2);
+		Carte Recyclage3 = new Carte("Recyclage", Points.Un, Couleur.VERT);
+		Recyclage3.addEffet(deplacerFosseToVf);
+		tasCartes.add(Recyclage3);
+
+		Carte Sauvetage1 = new Carte("Sauvetage", Points.Deux, Couleur.VERT);
+		Sauvetage1.addEffet(deplacerFosseToMain);//pareil qu'au dessus
+		tasCartes.add(Sauvetage1);
+		Carte Sauvetage2 = new Carte("Sauvetage", Points.Deux, Couleur.VERT);
+		Sauvetage2.addEffet(deplacerFosseToMain);
+		tasCartes.add(Sauvetage2);
+		Carte Sauvetage3 = new Carte("Sauvetage", Points.Deux, Couleur.VERT);
+		Sauvetage3.addEffet(deplacerFosseToMain);
+		tasCartes.add(Sauvetage3);
+
+		Carte Longevite1 = new Carte("Longévité", Points.Deux, Couleur.VERT);
+		Longevite1.addEffet(2, puiserSourceAdv);
+		tasCartes.add(Longevite1);
+		Carte Longevite2 = new Carte("Longévité", Points.Deux, Couleur.VERT);
+		Longevite2.addEffet(2, puiserSourceAdv);
+		tasCartes.add(Longevite2);
+		Carte Longevite3 = new Carte("Longévité", Points.Deux, Couleur.VERT);
+		Longevite3.addEffet(2, puiserSourceAdv);
+		tasCartes.add(Longevite3);
+
+		Carte Semis1 = new Carte("Semis", Points.Deux, Couleur.VERT);
+		Semis1.addEffet(2, puiserSource;
+		Semis1.addEffet(2,deplacerMainToVf));
+		tasCartes.add(Semis1);
+		Carte Semis2 = new Carte("Semis", Points.Deux, Couleur.VERT);
+		Semis2.addEffet(2, puiserSource);
+		Semis2.addEffet(2,deplacerMainToVf);
+		tasCartes.add(Semis2);
+		Carte Semis3 = new Carte("Semis", Points.Deux, Couleur.VERT);
+		Semis3.addEffet(2, puiserSource);
+		Semis3.addEffet(2,deplacerMainToVf);
+		tasCartes.add(Semis3);
+
+		Carte Voyage1 = new Carte("Voyage", Points.Trois, Couleur.VERT);
+		Voyage1.addEffet(3, puiserSource);
+		Voyage1.addEffet(rejouer);
+		tasCartes.add(Voyage1);
+		Carte Voyage2 = new Carte("Voyage", Points.Trois, Couleur.VERT);
+		Voyage2.addEffet(3, puiserSource);
+		Voyage2.addEffet(rejouer);
+		tasCartes.add(Voyage2);
+
+		Carte Jubilé1 = new Carte("Jubilé", Points.Trois, Couleur.VERT);
+		Jubilé1.addEffet(2, deplacerMaintoOuvre); //normaelement, on peut en poser qu'une voir aucune
+		tasCartes.add(Jubilé1);
+		Carte Jubilé2 = new Carte("Jubilé", Points.Trois, Couleur.VERT);
+		Jubilé2.addEffet(2, deplacerMaintoOuvre);
+		tasCartes.add(Jubilé2);
+
+
 		
 	}
 

@@ -10,16 +10,15 @@ import java.util.LinkedList;
 public class Copier implements Effet {
 
 
-    private LinkedList<Carte> cible;
+    private Carte cible;
 
-    public Copier (Partie partie, LinkedList<Carte> cible) {
-//        System.out.println(partie.getDefausse());
+    public Copier (Partie partie, Carte cible) {
         this.cible = cible;
 
     }
 
 
-    public LinkedList<Carte> getCible(){
+    public Carte getCible(){
         return this.cible;
     }
     
@@ -33,10 +32,9 @@ public class Copier implements Effet {
 
     @Override
     public void applyEffet(Partie partie) {
-        //Carte carte = getPartie().getDefausse().getFirst();
-        //System.out.println(partie.getDefausse());
-        //System.out.println(getCible());
-        //getPartie().getDefausse().remove(carte);
-        //partie.getTest().add(carte);
+        cible.applyEffet();
+
+
+
     }
 }
