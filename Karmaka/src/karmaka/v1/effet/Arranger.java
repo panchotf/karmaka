@@ -17,23 +17,30 @@ public class Arranger implements Effet {
 
     private final Partie partie;
 
-    private LinkedList<Carte> depart;
+    private LinkedList<Carte> cible;
     private LinkedList<Carte> arrivee;
+
+    private int nombre;
+
+    private boolean opif;
 
     private String saisieClavier;
     private Terminal terminal = new Terminal();
 
-    public Arranger(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
-//		System.out.println(partie.getDefausse());
+    private LinkedList<Carte> depot;
+
+    public Arranger(Partie partie, int nombre, LinkedList<Carte> cible, LinkedList<Carte> arrivee, boolean opif) {
         this.partie = partie;
-        this.depart = depart;
+        this.nombre = nombre;
+        this.opif = opif;
+        this.cible = cible;
         this.arrivee = arrivee;
 
     }
 
 
-    public LinkedList<Carte> getDepart(){
-        return this.depart;
+    public LinkedList<Carte> getCible(){
+        return this.cible;
     }
 
     public LinkedList<Carte> getArrivee(){
@@ -42,36 +49,29 @@ public class Arranger implements Effet {
 
 
 
+
+
     @Override
-    public void effet(Partie partie, Joueur joueur, int nombre, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif){
+    public void effet(Partie partie, Joueur joueur, int nombre, int nombreMax, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif, boolean obligatoire){
 
     }
 
     @Override
     public void applyEffet(Partie partie) {
-        System.out.println(depart);//affiche la liste des cartes du joueur
-
-        while (partie.getCarte(depart, saisieClavier)==null) {//tant que la carte n'est pas dans la main du joueur
-            System.out.println("Sélectionnez la carte à déplacée ");//on demande au joueur de choisir une carte
-            saisieClavier = terminal.lireChaine();
+        if (opif) {
+            //mettre nombre de carte nombre aléatoires de la liste cible dans la liste depot
+            for (int i = 0; i < nombre; i++) {
+                int random = (int) (Math.random() * cible.size());
+                depot.add(cible.get(random));
+            }
+        }else {
+            //mettre nombre de premieres cartes de la liste cible dans la liste depot
+            for (int i = 0; i < nombre; i++) {
+                depot.add(cible.get(i));
+            }
         }
-        Carte carteChoisie = partie.getCarte(depart, saisieClavier);//on récupère la carte choisie
-
-        partie.addCarte(arrivee, carteChoisie);//on ajoute la carte à la liste des cartes arrivée
-
-        partie.removeCarte(depart, saisieClavier);//on enlève la carte de la main du joueur
-        System.out.println("La carte a bien été déplacée.");
-        System.out.println(depart);//on affiche la liste des cartes depart
-        System.out.println(arrivee);//on affiche la liste des cartes arrivée
+        //afficher depot
+        System.out.println(depot);
     }
 
-    //Carte carte = getPartie().getDefausse().getFirst();
-    //System.out.println(partie.getDefausse());
-    //System.out.println(getDepart());
-    //System.out.println(getArrivee());
-    //getPartie().getDefausse().remove(carte);
-    //partie.getTest().add(carte);
-}
-
-{
 }
