@@ -33,15 +33,15 @@ public class JeuCartes {
 
 		Effet deplacerMaintoFosse = new Deplacer(partie, partie.getJoueur().getMain(), partie.getDefausse());
 
-		Effet deplacerOuvreToMain = new Deplacer(partie, partie.getAdversaire().getOeuvreExposee(), partie.getJoueur().getMain());
+		Effet puiserOuvreToMain = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getJoueur().getMain());
 
-		Effet puiserSource = new Deplacer(partie, partie.getJeu().getTasCartes(), partie.getJoueur().getPile());
+		Effet puiserSource = new Puiser(partie, partie.getJeu().getTasCartes(), partie.getJoueur().getPile());
 
 		Effet deplacerFosseToVf = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getViefuture());
 
-		Effet deplacerFosseToMain = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getMain());
+		Effet deplacerFosseToMain = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getMain());//peut etre puiser
 
-		Effet deplacerSourceToPile = new Deplacer(partie, partie.getJeu().getTasCartes(), partie.getAdversaire().getPile());
+		Effet deplacerSourceToPile = new Puiser(partie, partie.getJeu().getTasCartes(), partie.getAdversaire().getPile());
 
 		Effet deplacerMaintoOuvre = new Deplacer(partie, partie.getJoueur().getMain(), partie.getAdversaire().getOeuvres());
 
@@ -49,7 +49,7 @@ public class JeuCartes {
 
 		Effet deplacerVfToFosse = new Deplacer(partie, partie.getAdversaire().getViefuture(), partie.getDefausse());
 
-		Effet deplacerOuvreToFosse = new Deplacer(partie, partie.getAdversaire().getOeuvreExposee(), partie.getDefausse());
+		Effet deplacerOuvreToFosse = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getDefausse());//sort la prmiere carte des oeuvres et non la dernière
 
 
 
