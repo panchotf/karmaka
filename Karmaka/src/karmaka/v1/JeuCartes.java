@@ -60,13 +60,13 @@ public class JeuCartes {
 		Effet copier = new Copier(partie, partie.getDefausse());
 
 		//regarder
-		Effet regarder = new Regarder(partie, partie.getDefausse(), true);
+		Effet regarder = new Regarder(partie, partie.getDefausse());
 
-		Effet regaderVf = new Regarder(partie, partie.getJoueur().getViefuture(), false);
+		Effet regaderVf = new Regarder(partie, partie.getJoueur().getViefuture());
 
-		Effet regarderMain = new Regarder(partie, partie.getAdversaire().getMain(), false);
+		Effet regarderMain = new Regarder(partie, partie.getAdversaire().getMain());
 
-		Effet regarderSource = new Regarder(partie, partie.getJeu().getTasCartes(), false);
+		Effet regarderSource = new Regarder(partie, partie.getJeu().getTasCartes());
 
 
 
