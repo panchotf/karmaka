@@ -49,11 +49,16 @@ public class Puiser implements Effet {
     @Override
     public void applyEffet(Partie partie) {
 
-        partie.addCarte(arrivee, depart.getFirst());//on ajoute la carte à la liste des cartes arrivée
+        if (depart.isEmpty()) {
+            System.out.println("La liste de départ est vide.");
+        }else {
 
-        partie.removeCarte(depart, depart.getFirst().getNom());//on enlève la carte de la main du joueur
-        System.out.println("La carte a bien été puisée.");
-        System.out.println(arrivee);//on affiche la liste des cartes arrivée
+            partie.addCarte(arrivee, depart.getFirst());//on ajoute la carte à la liste des cartes arrivée
+
+            partie.removeCarte(depart, depart.getFirst().getNom());//on enlève la carte de la main du joueur
+            System.out.println("La carte a bien été puisée.");
+            System.out.println(arrivee);//on affiche la liste des cartes arrivée
+        }
     }
 
     //Carte carte = getPartie().getDefausse().getFirst();
