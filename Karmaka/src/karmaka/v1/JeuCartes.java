@@ -23,21 +23,11 @@ public class JeuCartes {
 
 		// deplacer
 
-		Effet deplacerVfToMain = new Deplacer(partie, partie.getAdversaire().getViefuture(), partie.getJoueur().getMain());
+		Effet deplacerVfToMain = new Deplacer(partie, partie.getJoueur().getViefuture(), partie.getJoueur().getMain());
 
 		Effet deplacerMainToVf = new Deplacer(partie, partie.getJoueur().getMain(), partie.getJoueur().getViefuture());
 
-		Effet puiserVftoVf = new Puiser(partie, partie.getAdversaire().getViefuture(), partie.getJoueur().getViefuture());
-
 		Effet deplacerMainToMain = new Deplacer(partie, partie.getJoueur().getMain(), partie.getAdversaire().getMain());
-
-		Effet deplacerMaintoFosse = new Deplacer(partie, partie.getJoueur().getMain(), partie.getDefausse());
-
-		Effet puiserOuvreToMain = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getJoueur().getMain());
-
-		Effet puiserSource = new Puiser(partie, getTasCartes(), partie.getJoueur().getPile());
-
-		Effet puiserSourceAdv = new Puiser(partie, getTasCartes(), partie.getAdversaire().getPile());
 
 		Effet deplacerFosseToVf = new Deplacer(partie, partie.getDefausse(), partie.getJoueur().getViefuture());
 
@@ -45,7 +35,7 @@ public class JeuCartes {
 
 		Effet deplacerSourceToPile = new Puiser(partie, getTasCartes(), partie.getAdversaire().getPile());
 
-		Effet deplacerMaintoOuvre = new Deplacer(partie, partie.getJoueur().getMain(), partie.getAdversaire().getOeuvres());
+		Effet deplacerMaintoOuvre = new Deplacer(partie, partie.getJoueur().getMain(), partie.getJoueur().getOeuvres());
 
 		Effet deplacerMainAdvToFosse = new Deplacer(partie, partie.getAdversaire().getMain(), partie.getDefausse());
 
@@ -54,17 +44,35 @@ public class JeuCartes {
 		Effet deplacerOuvreToFosse = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getDefausse());//sort la prmiere carte des oeuvres et non la dernière
 
 
+		//*********************************puiser*****************************
+
+		Effet puiserSourceAdv = new Puiser(partie, getTasCartes(), partie.getAdversaire().getPile());
+
+		Effet puiserVftoVf = new Puiser(partie, partie.getAdversaire().getViefuture(), partie.getJoueur().getViefuture());
+
+		Effet deplacerMaintoFosse = new Deplacer(partie, partie.getJoueur().getMain(), partie.getDefausse());
+
+		Effet puiserOuvreToMain = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getJoueur().getMain());
+
+		Effet puiserSource = new Puiser(partie, getTasCartes(), partie.getJoueur().getPile());
+
+		Effet puiserVftoFosse = new Puiser(partie, partie.getAdversaire().getViefuture(), partie.getDefausse());
+
+		Effet puiserOeuvreToFosse = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getDefausse());
+
+
 
 		//******************************** copier*****************************
 
 		Effet copierDeni = new Copier(partie, partie.getDefausse().getLast());
 
+
 		//*********************************rejouer*****************************
 
 		Effet rejouer = new Rejouer(partie, partie.getJoueur().getMain());
 
-		//regarder
-		Effet regarder = new Regarder(partie, partie.getDefausse());
+
+		//**********************************regarder****************************
 
 		Effet regaderVf = new Regarder(partie, partie.getJoueur().getViefuture());
 
@@ -80,7 +88,6 @@ public class JeuCartes {
 		Effet arrangerDestinee = new Arranger(partie, 3, 2, getTasCartes(), partie.getJoueur().getViefuture(), false, false);
 
 		Effet arrangerDuperie = new Arranger(partie, 3, 1, partie.getAdversaire().getMain(), partie.getJoueur().getMain(), true, true);
-
 
 
 
@@ -111,23 +118,26 @@ public class JeuCartes {
 		Destinee3.addEffet(arrangerDestinee);
 		tasCartes.add(Destinee3);
 		
-		Carte Coupdoeil1 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU);
+		Carte Coupdoeil1 = new Carte("Coup D'Oeil", Points.Un, Couleur.BLEU);
 		Coupdoeil1.addEffet(regarderMain);
+		Coupdoeil1.addEffet(rejouer);
 		tasCartes.add(Coupdoeil1);
-		Carte Coupdoeil2 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU);
+		Carte Coupdoeil2 = new Carte("Coup D'Oeil", Points.Un, Couleur.BLEU);
 		Coupdoeil2.addEffet(regarderMain);
+		Coupdoeil2.addEffet(rejouer);
 		tasCartes.add(Coupdoeil2);
-		Carte Coupdoeil3 = new Carte("Coup D'Oeil", Points.Trois, Couleur.BLEU);
+		Carte Coupdoeil3 = new Carte("Coup D'Oeil", Points.Un, Couleur.BLEU);
 		Coupdoeil3.addEffet(regarderMain);
+		Coupdoeil3.addEffet(rejouer);
 		tasCartes.add(Coupdoeil3);
 		
-		Carte ReveBrises1 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU);
+		Carte ReveBrises1 = new Carte("Rêves Brisés", Points.Deux, Couleur.BLEU);
 		ReveBrises1.addEffet(puiserVftoVf);
 		tasCartes.add(ReveBrises1);
-		Carte ReveBrises2 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU);
+		Carte ReveBrises2 = new Carte("Rêves Brisés", Points.Deux, Couleur.BLEU);
 		ReveBrises2.addEffet(puiserVftoVf);
 		tasCartes.add(ReveBrises2);
-		Carte ReveBrises3 = new Carte("Rêves Brisés", Points.Trois, Couleur.BLEU);
+		Carte ReveBrises3 = new Carte("Rêves Brisés", Points.Deux, Couleur.BLEU);
 		ReveBrises3.addEffet(puiserVftoVf);
 		tasCartes.add(ReveBrises3);
 		
@@ -138,15 +148,15 @@ public class JeuCartes {
 		Duperie2.addEffet(arrangerDuperie);
 		tasCartes.add(Duperie2);
 		
-		Carte Deni1 = new Carte("Déni", Points.Trois, Couleur.BLEU);
+		Carte Deni1 = new Carte("Déni", Points.Deux, Couleur.BLEU);
 		Deni1.addEffet(deplacerMaintoFosse);
 		Deni1.addEffet(copierDeni);
 		tasCartes.add(Deni1);
-		Carte Deni2 = new Carte("Déni", Points.Trois, Couleur.BLEU);
+		Carte Deni2 = new Carte("Déni", Points.Deux, Couleur.BLEU);
 		Deni2.addEffet(deplacerMaintoFosse);
 		Deni2.addEffet(copierDeni);
 		tasCartes.add(Deni2);
-		Carte Deni3 = new Carte("Déni", Points.Trois, Couleur.BLEU);
+		Carte Deni3 = new Carte("Déni", Points.Deux, Couleur.BLEU);
 		Deni3.addEffet(deplacerMaintoFosse);
 		Deni3.addEffet(copierDeni);
 		tasCartes.add(Deni3);
@@ -162,15 +172,15 @@ public class JeuCartes {
 		//*********************************Cartes Vertes**************************************************************
 
 		Carte Lendemain1 = new Carte("Lendemain", Points.Un, Couleur.VERT);
-		Lendemain1.addEffet(deplacerSourceToPile);
+		Lendemain1.addEffet(puiserSource);
 		Lendemain1.addEffet(rejouer);
 		tasCartes.add(Lendemain1);
 		Carte Lendemain2 = new Carte("Lendemain", Points.Un, Couleur.VERT);
-		Lendemain2.addEffet(deplacerSourceToPile);
+		Lendemain2.addEffet(puiserSource);
 		Lendemain2.addEffet(rejouer);
 		tasCartes.add(Lendemain2);
 		Carte Lendemain3 = new Carte("Lendemain", Points.Un, Couleur.VERT);
-		Lendemain3.addEffet(deplacerSourceToPile);
+		Lendemain3.addEffet(puiserSource);
 		Lendemain3.addEffet(rejouer);
 		tasCartes.add(Lendemain3);
 
@@ -234,7 +244,73 @@ public class JeuCartes {
 		tasCartes.add(Jubilé2);
 
 
-		
+		//*********************************Cartes Rouges**************************************************************
+
+		Carte Panique1 = new Carte("Panique", Points.Un, Couleur.ROUGE);
+		Panique1.addEffet(puiserVftoFosse);
+		Panique1.addEffet(rejouer);
+		tasCartes.add(Panique1);
+		Carte Panique2 = new Carte("Panique", Points.Un, Couleur.ROUGE);
+		Panique2.addEffet(puiserVftoFosse);
+		Panique2.addEffet(rejouer);
+		tasCartes.add(Panique2);
+		Carte Panique3 = new Carte("Panique", Points.Un, Couleur.ROUGE);
+		Panique3.addEffet(puiserVftoFosse);
+		Panique3.addEffet(rejouer);
+		tasCartes.add(Panique3);
+
+		Carte DernierSouffle1 = new Carte("Dernier Souffle", Points.Un, Couleur.ROUGE);
+		DernierSouffle1.addEffet(deplacerMainAdvToFosse);
+		tasCartes.add(DernierSouffle1);
+		Carte DernierSouffle2 = new Carte("Dernier Souffle", Points.Un, Couleur.ROUGE);
+		DernierSouffle2.addEffet(deplacerMainAdvToFosse);
+		tasCartes.add(DernierSouffle2);
+		Carte DernierSouffle3 = new Carte("Dernier Souffle", Points.Un, Couleur.ROUGE);
+		DernierSouffle3.addEffet(deplacerMainAdvToFosse);
+		tasCartes.add(DernierSouffle3);
+
+		Carte Crise1 = new Carte("Crise", Points.Deux, Couleur.ROUGE);
+		Crise1.addEffet(deplacerOuvreToFosse);
+		tasCartes.add(Crise1);
+		Carte Crise2 = new Carte("Crise", Points.Deux, Couleur.ROUGE);
+		Crise2.addEffet(deplacerOuvreToFosse);
+		tasCartes.add(Crise2);
+		Carte Crise3 = new Carte("Crise", Points.Deux, Couleur.ROUGE);
+		Crise3.addEffet(deplacerOuvreToFosse);
+		tasCartes.add(Crise3);
+
+		Carte Roulette1 = new Carte("Roulette", Points.Deux, Couleur.ROUGE);
+		Roulette1.addEffet(2, deplacerMaintoFosse);//normalement, on peut en poser qu'une voir aucune
+		Roulette1.addEffet(3, puiserSource);
+		tasCartes.add(Roulette1);
+		Carte Roulette2 = new Carte("Roulette", Points.Deux, Couleur.ROUGE);
+		Roulette2.addEffet(2, deplacerMaintoFosse);
+		Roulette2.addEffet(3, puiserSource);
+		tasCartes.add(Roulette2);
+		Carte Roulette3 = new Carte("Roulette", Points.Deux, Couleur.ROUGE);
+		Roulette3.addEffet(2, deplacerMaintoFosse);
+		Roulette3.addEffet(3, puiserSource);
+		tasCartes.add(Roulette3);
+
+		Carte Fournaise1 = new Carte("Fournaise", Points.Deux, Couleur.ROUGE);
+		Fournaise1.addEffet(2, puiserVftoFosse);
+		tasCartes.add(Fournaise1);
+		Carte Fournaise2 = new Carte("Fournaise", Points.Deux, Couleur.ROUGE);
+		Fournaise2.addEffet(2, puiserVftoFosse);
+		tasCartes.add(Fournaise2);
+		Carte Fournaise3 = new Carte("Fournaise", Points.Deux, Couleur.ROUGE);
+		Fournaise3.addEffet(2, puiserVftoFosse);
+		tasCartes.add(Fournaise3);
+
+		Carte Vengeance1 = new Carte("Vengeance", Points.Trois, Couleur.ROUGE);
+		Vengeance1.addEffet(puiserOeuvreToFosse);
+		tasCartes.add(Vengeance1);
+		Carte Vengeance2 = new Carte("Vengeance", Points.Trois, Couleur.ROUGE);
+		Vengeance2.addEffet(puiserOeuvreToFosse);
+		tasCartes.add(Vengeance2);
+
+		Carte Bassesse1 = new Carte("Bassesse", Points.Trois, Couleur.ROUGE);
+		Bassesse1.addEffet(2, puiserMainToFosse);
 	}
 
 
