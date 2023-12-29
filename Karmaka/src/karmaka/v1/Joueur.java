@@ -1,10 +1,14 @@
 package karmaka.v1;
 import java.util.LinkedList;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.Random;
+
 public class Joueur {
 	
+	private Random random;
 	private String nom;
 	private int ptsKarm;
 	private int anneaux;
@@ -23,6 +27,7 @@ public class Joueur {
 		this.ptsKarm = 4;
 		this.anneaux = 0;
 		this.vivant=true;
+		this.random = new Random();
 	}
 	
 	// le joueur ramasse la carte et l'ajoute en dessous des cartes déjà existantes dans la main
@@ -167,6 +172,20 @@ public class Joueur {
         return null;
     }
 
+    
+    //Méthode pour récupérer une carte au hasard de la main 
+    
+    public Carte getCarteAleatoireDeMain() {
+        // Vérifiez si la main n'est pas vide
+        if (main.isEmpty()) {
+            // Gestion d'erreur : la main est vide, aucune carte à récupérer
+            return null;
+        }
+
+        Random random = new Random();
+        int indexAleatoire = random.nextInt(main.size());
+        return main.get(indexAleatoire);
+    }
 	
 	// le joueur gagne s'il atteint 7 points de karma 
 	public boolean isWinner(){
@@ -175,6 +194,11 @@ public class Joueur {
 			jaigagne=true;
 		return jaigagne;
 	}
+	
+    public int choixRandom() {
+        // Génère une probabilité aléatoire entre 0 et 100
+        return random.nextInt(101);
+    }
 	
 	public String toString(){
 		StringBuffer sb = new StringBuffer();

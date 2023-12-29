@@ -18,13 +18,18 @@ public class Partie {
 	
 	
 	//******************Constructeur de la partie*************
-	public Partie() {
+	public Partie(String Joueur1, String Joueur2) {
 		// instanciation de la liste des joueurs 
 		listJ = new ArrayList<>();
+		
 
 		//new instanciation joueurs
-		Joueur joueur1 = new Joueur("Joueur 1");
-		Joueur joueur2 = new Joueur("Joueur 2");
+		Joueur joueur1 = new Joueur(Joueur1);
+		Joueur joueur2 = new Joueur(Joueur2);
+		
+		if (Joueur2.equals("IA")) {
+			joueur2 = new IA();
+        }
 
 		// ajout des joueurs dans la liste des joueurs
 		listJ.add(joueur1);
