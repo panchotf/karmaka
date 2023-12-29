@@ -43,14 +43,13 @@ public class JeuCartes {
 
 		Effet deplacerOuvreToFosse = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getDefausse());//sort la prmiere carte des oeuvres et non la dernière
 
+		Effet deplacerMaintoFosse = new Deplacer(partie, partie.getJoueur().getMain(), partie.getDefausse());
 
 		//*********************************puiser*****************************
 
 		Effet puiserSourceAdv = new Puiser(partie, getTasCartes(), partie.getAdversaire().getPile());
 
 		Effet puiserVftoVf = new Puiser(partie, partie.getAdversaire().getViefuture(), partie.getJoueur().getViefuture());
-
-		Effet deplacerMaintoFosse = new Deplacer(partie, partie.getJoueur().getMain(), partie.getDefausse());
 
 		Effet puiserOuvreToMain = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getJoueur().getMain());
 
@@ -60,7 +59,7 @@ public class JeuCartes {
 
 		Effet puiserOeuvreToFosse = new Puiser(partie, partie.getAdversaire().getOeuvres(), partie.getDefausse());
 
-
+		Effet puiserMainAdvToFosse = new Puiser(partie, partie.getAdversaire().getMain(), partie.getDefausse());
 
 		//******************************** copier*****************************
 
@@ -310,7 +309,12 @@ public class JeuCartes {
 		tasCartes.add(Vengeance2);
 
 		Carte Bassesse1 = new Carte("Bassesse", Points.Trois, Couleur.ROUGE);
-		Bassesse1.addEffet(2, puiserMainToFosse);
+		Bassesse1.addEffet(2, puiserMainAdvToFosse);
+		tasCartes.add(Bassesse1);
+		Carte Bassesse2 = new Carte("Bassesse", Points.Trois, Couleur.ROUGE);
+		Bassesse2.addEffet(2, puiserMainAdvToFosse);
+		tasCartes.add(Bassesse2);
+
 	}
 
 
