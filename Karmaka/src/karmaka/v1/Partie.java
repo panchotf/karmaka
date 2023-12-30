@@ -38,7 +38,7 @@ public class Partie {
 	
 		// instanciation de la defausse 
 		defausse = new LinkedList<>();
-		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU);
+		Carte transmigration1 = new Carte("Transmigration", Points.Un, Couleur.BLEU, Description.TRANSMIGRATION.getDescription());
 		defausse.add(transmigration1);
 		
 		test = new LinkedList<>();

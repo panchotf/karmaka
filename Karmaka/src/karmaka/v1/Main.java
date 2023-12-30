@@ -149,8 +149,8 @@ public class Main {
                 saisieClavier = "nan"; // On set la saisie clavier de départ avec un string quelconque pour éviter d'avoir des soucis avec null
                 saisie = "nan";
                 
-                while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3")||(saisieClavier.equals("5") && (joueurCourant.pileVide()==false)))) {
-                    System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse (5)Passer tour");
+                while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3")|| saisieClavier.equals("6") ||(saisieClavier.equals("5") && (joueurCourant.pileVide()==false)))) {
+                    System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse (5)Passer tour (6)Lire Carte");
                     
                     if (joueurCourant instanceof IA) {
                     	if(joueurCourant.choixRandom()<50) {
@@ -176,6 +176,23 @@ public class Main {
 
                     if (saisieClavier.equals("4")) {
                         System.out.println(karmaka.getDefausse());
+                    }
+                    
+                    else if (saisieClavier.equals("6")) {
+                        while (joueurCourant.getCarteDeMain(saisieClavier)==null) {
+                        	
+                        	if (joueurCourant instanceof IA) {
+                        		saisieClavier = joueurCourant.getCarteAleatoireDeMain().getNom();
+                        		System.out.println("L'IA a sélectionné la carte : "+saisieClavier);
+                        		saisie = terminal.lireChaine();
+                        	}
+                        	else {
+                        		System.out.println("Sélectionnez une carte de votre main pour lire sa description : ");
+                        		saisieClavier = terminal.lireChaine();
+                        	}
+                        }
+                        Carte carteChoisie = joueurCourant.getCarteDeMain(saisieClavier);
+                        System.out.println(carteChoisie.getDescription());
                     }
                     else if ((saisieClavier.equals("5") && (joueurCourant.pileVide()==true))) {
                         System.out.println("Vous ne pouvez pas passer votre tour car votre pile est vide");
@@ -237,6 +254,7 @@ public class Main {
                     System.out.println("L'effet de la carte s'active. ");
                     cartePlateau.applyEffet(karmaka);
                 }
+                
                 else if (saisieClavier.equals("5")) {
 
                 }

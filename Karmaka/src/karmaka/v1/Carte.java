@@ -7,17 +7,20 @@ public class Carte {
 	private String nom;
     private Points points;
     private Couleur couleur;
+    private String description;
+    
 //    private Effet effet;
 
     private ArrayList<Effet> effets; // Utilisation d'une liste pour stocker les effets
 
     // Constructeur
 
-    public Carte (String nom, Points points, Couleur couleur/*, Effet effet*/) {
+    public Carte (String nom, Points points, Couleur couleur/*, Effet effet*/, String description) {
         this.setNom(nom);
     	this.setCouleur(couleur);
     	this.setPoints(points);
 //    	this.effet = effet;
+    	this.description = description;
         effets = new ArrayList<>();
 
     }
@@ -71,6 +74,11 @@ public class Carte {
     public ArrayList<Effet> getEffets() {
         return effets;
     }
+    
+    public String getDescription() {
+    	return description;
+    }
+
 
 //=====================================toString==============================================
     public String toString() {
