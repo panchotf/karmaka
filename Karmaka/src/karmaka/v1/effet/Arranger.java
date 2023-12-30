@@ -89,12 +89,25 @@ public class Arranger implements Effet {
         while (i<nombreMax) {
             if (!obligatoire) {
                 System.out.println("Voulez-vous choisir une carte dans le depot ? (oui/non)");
+                
+                if (partie.getJoueur() instanceof IA) {
+                	if(partie.getJoueur().choixRandom()<50) {
+                    	saisieClavier = "oui";
+                    	}
+                	else {
+                		saisieClavier = "non";
+                	}
+                }
+                else {
                 saisieClavier = terminal.lireChaine();
+                }
                 if (saisieClavier.equals("oui")) {
                     System.out.println(depot);
                     while (partie.getCarte(depot, saisieClavier) == null) {//tant que la carte n'est pas dans la main du joueur
                         System.out.println("Sélectionnez la carte à déplacer ");//on demande au joueur de choisir une carte
+      
                         saisieClavier = terminal.lireChaine();
+                        
                     }
                     Carte carteChoisie = partie.getCarte(depot, saisieClavier);//on récupère la carte choisie
 

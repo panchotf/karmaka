@@ -1,11 +1,13 @@
 package karmaka.v1.effet;
 
 import karmaka.v1.Carte;
+
 import karmaka.v1.Effet;
+import karmaka.v1.IA;
 import karmaka.v1.Joueur;
 import karmaka.v1.Partie;
 import karmaka.v1.Terminal;
-
+import java.util.Random;
 
 import java.util.LinkedList;
 
@@ -49,7 +51,19 @@ public class Deplacer implements Effet {
 
 		while (partie.getCarte(depart, saisieClavier)==null) {//tant que la carte n'est pas dans la main du joueur
 			System.out.println("Sélectionnez la carte à déplacer ");//on demande au joueur de choisir une carte
+			
+			if (partie.getJoueur() instanceof IA) {
+				 // Générer un index aléatoire
+		        Random random = new Random();
+		        int indexAleatoire = random.nextInt(getDepart().size()-1);
+
+		        // Récupérer l'élément à l'index aléatoire
+		        saisieClavier = getDepart().get(indexAleatoire).getNom();
+				
+			}
+			else {
 			saisieClavier = terminal.lireChaine();
+			}
 		}
 		Carte carteChoisie = partie.getCarte(depart, saisieClavier);//on récupère la carte choisie
 
