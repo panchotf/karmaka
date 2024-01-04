@@ -2,12 +2,13 @@ package karmaka.v1;
 
 
 import karmaka.v1.effet.*;
+import java.io.*;
 
 import java.util.Collections;
 import java.util.LinkedList;
 
 
-public class JeuCartes {
+public class JeuCartes implements Serializable {
 	
 	// attributs d'un jeu de cartes
 	private LinkedList<Carte> tasCartes;

@@ -1,10 +1,12 @@
 package karmaka.v1;
 
-
+import java.io.*; 
 public class Main {
+	
 
     public static void main(String[] args) {
         // Création d'une partie Karmaka
+    	
 
         Terminal terminal = new Terminal();
         String saisieClavier = new String();
@@ -12,6 +14,8 @@ public class Main {
         String modeJeu = new String();
         String nomJoueur1 = new String();
         String nomJoueur2 = new String();
+
+
 
         
 	    System.out.println("Choisissez le mode de jeu (1) VS IA (2) VS joueur : ");
@@ -30,8 +34,10 @@ public class Main {
             nomJoueur2= terminal.lireChaine();
         }
         
-        Partie karmaka = new Partie(nomJoueur1, nomJoueur2);
 
+        
+        Partie karmaka = new Partie(nomJoueur1, nomJoueur2);
+        
        
         
         // création de deux joueurs
@@ -56,7 +62,7 @@ public class Main {
 
         // on distribue les cartes à l'ensemble des joueurs
         karmaka.distribuerCartes();
-
+        
         // on affiche les 2 joueurs de cette partie
         // System.out.println(karmaka.listJ.get(0));
         // System.out.println(karmaka.listJ.get(1));
@@ -149,8 +155,8 @@ public class Main {
                 saisieClavier = "nan"; // On set la saisie clavier de départ avec un string quelconque pour éviter d'avoir des soucis avec null
                 saisie = "nan";
                 
-                while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3")|| saisieClavier.equals("6") ||(saisieClavier.equals("5") && (joueurCourant.pileVide()==false)))) {
-                    System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse (5)Passer tour (6)Lire Carte");
+                while (!(saisieClavier.equals("1") || saisieClavier.equals("2") || saisieClavier.equals("3") ||(saisieClavier.equals("5") && (joueurCourant.pileVide()==false)))) {
+                    System.out.println("Sélectionnez une action : (1) Vie Future (2) Oeuvre (3) Jouer (4) Voir défausse (5)Passer tour (6)Lire Carte (7)Sauvegarder");
                     
                     if (joueurCourant instanceof IA) {
                     	if(joueurCourant.choixRandom()<50) {
@@ -178,6 +184,17 @@ public class Main {
                         System.out.println(karmaka.getDefausse());
                     }
                     
+                    else if (saisieClavier.equals("7")) {
+                    	try(ObjectOutputStream oos = new ObjectOutputStream(new
+                    			FileOutputStream("save.ser")))
+                    			{
+                    			oos.writeObject(karmaka);
+                    			oos.close();
+                    			}
+                    			catch (IOException e) {}
+                        System.out.println("Partie sauvegardée");
+                    }
+                    
                     else if (saisieClavier.equals("6")) {
                         while (joueurCourant.getCarteDeMain(saisieClavier)==null) {
                         	
@@ -197,6 +214,7 @@ public class Main {
                     else if ((saisieClavier.equals("5") && (joueurCourant.pileVide()==true))) {
                         System.out.println("Vous ne pouvez pas passer votre tour car votre pile est vide");
                     }
+
                 }
 
 
@@ -270,4 +288,5 @@ public class Main {
         }
 
     }
+    
 }

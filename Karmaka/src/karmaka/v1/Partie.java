@@ -2,12 +2,14 @@ package karmaka.v1;
 
 import java.util.ArrayList;
 
+
 import java.util.LinkedList;
 
 import java.util.Iterator;
+import java.io.*;
 
 
-public class Partie {
+public class Partie implements Serializable {
 
 	// attributs d'une Partie 
 	private ArrayList<Joueur> listJ;

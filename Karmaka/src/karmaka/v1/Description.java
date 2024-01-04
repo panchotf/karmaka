@@ -3,7 +3,7 @@ package karmaka.v1;
 public enum Description {
 
 	TRANSMIGRATION("Placez dand votre main n'importe quelle carte de votre vie future."),
-    DESTINEE("regardez les 3 premières cartes de la source; ajoutez-en jusqu'à 2 à votre Vie Future. Replacez le reste dans l'ordre souhaité."),
+    DESTINEE("Regardez les 3 premières cartes de la source; ajoutez-en jusqu'à 2 à votre Vie Future. Replacez le reste dans l'ordre souhaité."),
     OEIL("Regardez la Main d'un rival. Vous pouvez ensuite jouer une autre carte"),
     REVES("Placez la première carte de la Vie Future d'un rival sur la vôtre"),
     DUPERIE("Regardez 3 cartes de la Main d'un rival; ajoutez-en une à votre Main"),

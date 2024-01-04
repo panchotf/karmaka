@@ -1,7 +1,7 @@
 package karmaka.v1;
+import java.io.*;
 
-
-public class IA extends Joueur {
+public class IA extends Joueur implements Serializable {
 	
 
 

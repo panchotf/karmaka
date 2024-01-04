@@ -2,7 +2,9 @@ package karmaka.v1;
 
 import java.util.*;
 
-public class Carte {
+import java.io.*;
+
+public class Carte implements Serializable {
 	
 	private String nom;
     private Points points;

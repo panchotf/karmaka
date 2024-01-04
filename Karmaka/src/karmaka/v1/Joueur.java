@@ -1,12 +1,13 @@
 package karmaka.v1;
 import java.util.LinkedList;
+import java.io.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import java.util.Random;
 
-public class Joueur {
+public class Joueur implements Serializable {
 	
 	private Random random;
 	private String nom;
