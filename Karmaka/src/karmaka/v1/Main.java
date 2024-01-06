@@ -40,20 +40,7 @@ public class Main {
         
        
         
-        // création de deux joueurs
-        /*Joueur Joueur1 = new Joueur(nomJoueur1);
-        Joueur Joueur2 = new Joueur(nomJoueur2);*/
 
-        // on ajoute les 2 joueurs à la partie
-        /*karmaka.ajouterUnJoueur(new Joueur(nomJoueur1));
-        karmaka.ajouterUnJoueur(new Joueur(nomJoueur2));*/
-
-        //assoier les joueurs créés dans partie et les noms saisis
-
-
-
-        /*karmaka.ajouterUnJoueur(Joueur1);
-        karmaka.ajouterUnJoueur(Joueur2);*/
 
         // on affiche le jeu de cartes
         System.out.println("Les cartes du jeu sont : " + karmaka.getJeu());
@@ -62,10 +49,6 @@ public class Main {
 
         // on distribue les cartes à l'ensemble des joueurs
         karmaka.distribuerCartes();
-        
-        // on affiche les 2 joueurs de cette partie
-        // System.out.println(karmaka.listJ.get(0));
-        // System.out.println(karmaka.listJ.get(1));
 
 
         Carte cartePlateau = null; // La carte qui a été joué au tour précédent

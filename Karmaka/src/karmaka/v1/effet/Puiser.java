@@ -61,11 +61,5 @@ public class Puiser implements Effet {
         }
     }
 
-    //Carte carte = getPartie().getDefausse().getFirst();
-    //System.out.println(partie.getDefausse());
-    //System.out.println(getDepart());
-    //System.out.println(getArrivee());
-    //getPartie().getDefausse().remove(carte);
-    //partie.getTest().add(carte);
 }
 

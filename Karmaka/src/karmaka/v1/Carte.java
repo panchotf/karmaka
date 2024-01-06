@@ -27,13 +27,6 @@ public class Carte implements Serializable {
 
     }
 
-    
-    /*public Carte (String nom, Points points, Couleur couleur) {
-        this.setNom(nom);
-    	this.setCouleur(couleur);
-    	this.setPoints(points);
-    }*/
-
 
 
     // Méthode pour ajouter un effet à la liste

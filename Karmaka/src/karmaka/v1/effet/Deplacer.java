@@ -75,11 +75,6 @@ public class Deplacer implements Effet {
 		System.out.println(arrivee);//on affiche la liste des cartes arrivée
 	}
 
-		//Carte carte = getPartie().getDefausse().getFirst();
-		//System.out.println(partie.getDefausse());
-		//System.out.println(getDepart());
-		//System.out.println(getArrivee());
-		//getPartie().getDefausse().remove(carte);
-		//partie.getTest().add(carte);
+
 }
 
