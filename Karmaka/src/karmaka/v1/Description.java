@@ -1,5 +1,8 @@
 package karmaka.v1;
 
+/**
+ * Enumeration des couleurs des cartes
+ */
 public enum Description {
 
 	TRANSMIGRATION("Placez dand votre main n'importe quelle carte de votre vie future."),

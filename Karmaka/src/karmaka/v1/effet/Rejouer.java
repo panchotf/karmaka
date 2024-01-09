@@ -13,16 +13,33 @@ public class Rejouer implements Effet {
 
     private Terminal terminal = new Terminal();
 
+    /** constructeur de la classe Rejouer
+     * @param partie
+     * @param cible
+     */
     public Rejouer (Partie partie, LinkedList<Carte> cible) {
         this.cible = cible;
     }
 
 
+    /** methode qui permet de rejouer une carte
+     * @param partie
+     * @param nombre
+     * @param nombreMax
+     * @param cible
+     * @param arrivee
+     * @param opif
+     * @param obligatoire
+     */
     @Override
     public void effet(Partie partie, Joueur joueur, int nombre, int nombreMax, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif, boolean obligatoire) {
 
     }
 
+
+    /** methode qui permet d'appliquer l'effet de rejouer une carte
+     * @param partie
+     */
     @Override
     public void applyEffet(Partie partie) {
         //demander de jouer une carte dans cible

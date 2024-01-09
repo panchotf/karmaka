@@ -16,6 +16,10 @@ public class JeuCartes implements Serializable {
 
 	
 	// constructeur du jeu de cartes
+	/**
+	 * Constructeur de la classe JeuCartes
+	 * @param partie
+	 */
 	public JeuCartes(Partie partie){
 		// instancie le jeu de cartes 
 		this.tasCartes = new LinkedList<>();
@@ -322,6 +326,10 @@ public class JeuCartes implements Serializable {
 	
 	
 	// retire la premiére carte du tas de cartes (la carte du dessus)
+	/**
+	 * Retire la première carte du tas de cartes (la carte du dessus)
+	 * @return
+	 */
 	public Carte distribuerUneCarte(){ 
 		Carte c;
 		// on retire la carte du dessus du tas de cartes
@@ -331,21 +339,36 @@ public class JeuCartes implements Serializable {
 	}
 	
 	// Mélange de toutes les cartes. Très simple ....Appel de shuffle de la classe Collections (à différencier de l'interface Collection)
+	/**
+	 * Mélange de toutes les cartes. Très simple ....Appel de shuffle de la classe Collections (à différencier de l'interface Collection)
+	 */
 	public void melanger(){
 		Collections.shuffle(tasCartes);
 	}
 	
 	
 	// le tas de cartes est-il vide?
+	/**
+	 * Le tas de cartes est-il vide?
+	 * @return
+	 */
 	public boolean estVide() {
 		// le tas cartes est vide ?
 		return tasCartes.isEmpty();
 	}
-	
+
+	/**
+	 * Retourne le nombre de cartes dans le tas de cartes
+	 * @return
+	 */
 	public String toString(){
 		return tasCartes.toString();
 	}
-	
+
+	/**
+	 * Retourne le nombre de cartes dans le tas de cartes
+	 * @return
+	 */
 	public LinkedList<Carte> getTasCartes(){
 		return tasCartes;
 	}

@@ -7,6 +7,9 @@ import java.util.Map;
 
 import java.util.Random;
 
+/**
+ * Classe Joueur
+ */
 public class Joueur implements Serializable {
 	
 	private Random random;
@@ -18,7 +21,11 @@ public class Joueur implements Serializable {
 	private LinkedList<Carte> oeuvres;
 	private LinkedList<Carte> viefuture;
 	private boolean vivant;
-	
+
+	/**
+	 * Constructeur de la classe Joueur
+	 * @param nom
+	 */
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.main = new LinkedList<>();
@@ -32,7 +39,7 @@ public class Joueur implements Serializable {
 	}
 	
 	// le joueur ramasse la carte et l'ajoute en dessous des cartes déjà existantes dans la main
-	
+
 	public int getptsKarm() {
 		return ptsKarm;
 	}
@@ -68,11 +75,17 @@ public class Joueur implements Serializable {
 	public LinkedList<Carte> getPile() {
 		return pile;
 	}
-	
+
+	/**
+	 * Methode qui permet de piocher une carte
+	 */
 	public boolean pileVide(){
 		return pile.isEmpty();
 	}
-	
+
+	/**
+	 * Methode qui permet de piocher une carte
+	 */
 	public boolean mainVide(){
 		return main.isEmpty();
 	}
@@ -92,20 +105,36 @@ public class Joueur implements Serializable {
 	public Carte getOeuvreExposee() {
 		return oeuvres.getLast();
 	}
-	
+
+	/**
+	 * Methode qui permet d'ajouter une oeuvre
+	 * @param carte
+	 */
 	public void ajouterOeuvre(Carte carte){
 		oeuvres.add(carte);
 	}
-	
+
+	/**
+	 * Methode qui permet de retirer une oeuvre
+	 * @param carte
+	 */
 	public void retirerOeuvre(Carte carte){
 		oeuvres.remove(carte);
 	}
-	
+
+	/**
+	 * methde qui permet de vider les oeuvres
+	 * @param defausse
+	 */
 	public void viderOeuvre(LinkedList<Carte> defausse) {
 		defausse.addAll(oeuvres);
 		oeuvres.clear();
 	}
 
+	/**
+	 * Methode qui permet d'ajouter une carte a la vie future
+	 * @param carte
+	 */
 	public void ajouterVieFuture(Carte carte){
 		viefuture.add(carte);
 	}
@@ -115,28 +144,45 @@ public class Joueur implements Serializable {
 		viefuture.clear();
 	}
 	
-	
+	/**
+	 * Methode qui permet de piocher une carte dans la pie
+	 */
 	public void piocher() {
 		main.add(pile.getFirst());
 		pile.remove(pile.getFirst());
 	}
-	
+
+
 	public int nombreMain() {
 		return main.size();
 	}
-	
+
+	/**
+	 * methode qui permet de tuer un joueur
+	 */
 	public void tuer() {
 		this.vivant = false;
 	}
-	
+
+	/**
+	 * methode qui permet de reincarner un joueur
+	 */
 	public void reincarner() {
 		this.vivant = true;
 	}
-	
+
+	/**
+	 * methode qui permet de savoir si un joueur est vivant
+	 * @return vivant
+	 */
 	public boolean estVivant() {
 		return this.vivant;
 	}
-	
+
+	/**
+	 * methode qui fait la somme des points par couleur
+	 * @return
+	 */
     public Map<Couleur, Integer> sommeDesPointsParCouleur() {
         Map<Couleur, Integer> sommePointsParCouleur = new HashMap<>();
 
@@ -149,7 +195,12 @@ public class Joueur implements Serializable {
 
         return sommePointsParCouleur;
     }
-    
+
+	/**
+	 * methode qui permet de calculer le nombre de points max
+	 * @param sommeDesPointsParCouleur
+	 * @return
+	 */
     public int maxPoints(Map<Couleur, Integer> sommeDesPointsParCouleur) {
         int valeurMaximale = 0;  // La valeur par défaut si la Map est vide
 
@@ -162,7 +213,13 @@ public class Joueur implements Serializable {
         return valeurMaximale;
     }
 	
-	// Méthode publique pour pouvoir récupérer une carte dans la main du joueur 
+	// Méthode publique pour pouvoir récupérer une carte dans la main du joueur
+
+	/**
+	 * methode qui permet de recuperer une carte de la main
+	 * @param nomCarte
+	 * @return
+	 */
     public Carte getCarteDeMain(String nomCarte) {
         for (Carte carte : main) {
             if (carte.getNom().equals(nomCarte)) {
@@ -175,7 +232,11 @@ public class Joueur implements Serializable {
 
     
     //Méthode pour récupérer une carte au hasard de la main 
-    
+
+	/**
+	 * methode qui permet de recuperer une carte au hasard de la main
+	 * @return
+	 */
     public Carte getCarteAleatoireDeMain() {
         // Vérifiez si la main n'est pas vide
         if (main.isEmpty()) {
@@ -188,19 +249,28 @@ public class Joueur implements Serializable {
         return main.get(indexAleatoire);
     }
 	
-	// le joueur gagne s'il atteint 7 points de karma 
+	// le joueur gagne s'il atteint 7 points de karma
+	/**
+	 * methode qui permet de savoir si le joueur a gagne
+	 * @return
+	 */
 	public boolean isWinner(){
 		boolean jaigagne = false;
 		if (ptsKarm==7)
 			jaigagne=true;
 		return jaigagne;
 	}
-	
+
+	/**
+	 * methode qui permet de choisir un nombre aleatoire
+	 * @return
+	 */
     public int choixRandom() {
         // Génère une probabilité aléatoire entre 0 et 100
         return random.nextInt(101);
     }
-	
+
+
 	public String toString(){
 		StringBuffer sb = new StringBuffer();
 		sb.append(this.nom +"  \n");

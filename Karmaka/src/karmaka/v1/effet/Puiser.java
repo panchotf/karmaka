@@ -22,6 +22,12 @@ public class Puiser implements Effet {
     private String saisieClavier;
     private Terminal terminal = new Terminal();
 
+
+    /** constructeur de la classe Puiser
+     * @param partie
+     * @param depart
+     * @param arrivee
+     */
     public Puiser(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
 //		System.out.println(partie.getDefausse());
         this.partie = partie;
@@ -40,12 +46,23 @@ public class Puiser implements Effet {
     }
 
 
-
+    /** methode qui permet de deplacer une carte d'une liste à une autre sans la choisir
+     * @param partie
+     * @param nombre
+     * @param nombreMax
+     * @param cible
+     * @param arrivee
+     * @param opif
+     * @param obligatoire
+     */
     @Override
     public void effet(Partie partie, Joueur joueur, int nombre, int nombreMax, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif, boolean obligatoire){
 
     }
 
+    /** methode qui permet d'appliquer l'effet de la carte
+     * @param partie
+     */
     @Override
     public void applyEffet(Partie partie) {
 

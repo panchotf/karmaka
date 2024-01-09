@@ -4,6 +4,10 @@ import java.io.*;
 public class Main {
 	
 
+    /**
+     * Méthode main
+     * @param args
+     */
     public static void main(String[] args) {
         // Création d'une partie Karmaka
     	

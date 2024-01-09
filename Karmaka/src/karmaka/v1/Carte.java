@@ -15,9 +15,14 @@ public class Carte implements Serializable {
 
     private ArrayList<Effet> effets; // Utilisation d'une liste pour stocker les effets
 
-    // Constructeur
-
-    public Carte (String nom, Points points, Couleur couleur/*, Effet effet*/, String description) {
+    /**
+     * Constructeur de la classe Carte
+     * @param nom
+     * @param points
+     * @param couleur
+     * @param description
+     */
+    public Carte (String nom, Points points, Couleur couleur, String description) {
         this.setNom(nom);
     	this.setCouleur(couleur);
     	this.setPoints(points);
@@ -30,10 +35,19 @@ public class Carte implements Serializable {
 
 
     // Méthode pour ajouter un effet à la liste
+    /**
+     * Ajoute un effet à la liste des effets de la carte
+     * @param effet
+     */
     public void addEffet(Effet effet) {
         this.effets.add(effet);
     }
 
+    /**
+     * Ajoute un effet à la liste des effets de la carte
+     * @param nombre
+     * @param effet
+     */
     public void addEffet(int nombre, Effet effet) {
         for(int i=0; i<nombre; i++){
             this.effets.add(effet);
@@ -85,6 +99,10 @@ public class Carte implements Serializable {
     }
     
 
+    /**
+     * Applique les effets de la carte
+     * @param partie
+     */
 	public void applyEffet(Partie partie) {
         for(Effet effet : effets){
             effet.applyEffet(partie);

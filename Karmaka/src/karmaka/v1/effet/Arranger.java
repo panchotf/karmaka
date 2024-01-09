@@ -15,9 +15,12 @@ import java.util.*;
 
 public class Arranger implements Effet {
 
+
     private final Partie partie;
 
     private LinkedList<Carte> cible;
+
+
     private LinkedList<Carte> arrivee;
 
     private int nombre;
@@ -32,6 +35,16 @@ public class Arranger implements Effet {
 
     private LinkedList<Carte> depot;
 
+
+    /** constructeur de la classe Arranger
+     * @param partie
+     * @param nombre
+     * @param nombreMax
+     * @param cible
+     * @param arrivee
+     * @param opif
+     * @param obligatoire
+     */
     public Arranger(Partie partie, int nombre, int nombreMax, LinkedList<Carte> cible, LinkedList<Carte> arrivee, boolean opif, boolean obligatoire) {
         this.partie = partie;
         this.nombre = nombre;
@@ -54,14 +67,26 @@ public class Arranger implements Effet {
     }
 
 
-
-
-
+    /** methode qui permet d'arranger les cartes d'une liste
+     * @param partie
+     * @param joueur
+     * @param nombre
+     * @param nombreMax
+     * @param depart
+     * @param arrivee
+     * @param cible
+     * @param carte
+     * @param opif
+     * @param obligatoire
+     */
     @Override
     public void effet(Partie partie, Joueur joueur, int nombre, int nombreMax, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif, boolean obligatoire){
 
     }
 
+    /**
+     * @param partie
+     */
     @Override
     public void applyEffet(Partie partie) {
 

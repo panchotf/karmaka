@@ -21,6 +21,12 @@ public class Deplacer implements Effet {
 	private String saisieClavier;
 	private Terminal terminal = new Terminal();
 
+	/** constructeur de la classe Deplacer
+	 * @param partie
+	 * @param depart
+	 * @param arrivee
+	 */
+
 	public Deplacer(Partie partie, LinkedList<Carte> depart, LinkedList<Carte> arrivee) {
 //		System.out.println(partie.getDefausse());
 		this.partie = partie;
@@ -39,12 +45,23 @@ public class Deplacer implements Effet {
 	}
 	
 	
-	
+	/** methode qui permet de déplacer une carte d'une liste à une autre
+	 * @param partie
+	 * @param nombre
+	 * @param nombreMax
+	 * @param cible
+	 * @param arrivee
+	 * @param opif
+	 * @param obligatoire
+	 */
 	@Override
 	public void effet(Partie partie, Joueur joueur, int nombre, int nombreMax, LinkedList<Carte> depart, LinkedList<Carte> arrivee, String cible, Carte carte, boolean opif, boolean obligatoire){
 
 	}
-	
+
+	/** methode qui permet d'appliquer l'effet déplacer à la carte choisie
+	 * @param partie
+	 */
 	@Override
 	public void applyEffet(Partie partie) {
 		System.out.println(depart);//affiche la liste des cartes du joueur
