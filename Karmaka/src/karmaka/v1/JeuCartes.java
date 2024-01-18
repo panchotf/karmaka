@@ -7,7 +7,12 @@ import java.io.*;
 import java.util.Collections;
 import java.util.LinkedList;
 
-
+/**
+ * Classe JeuCartes qui permet de créer un jeu de cartes avec un tas de cartes
+ * Les effets sont tous instanciés dans le constructeur puis les cartes sont instanciées.
+ * Ensuite, les effets sont ajoutés aux cartes. Chaque effet de carte est une combinaison d'effets.
+ * Les cartes sont ensuite ajoutées au tas de cartes.
+ */
 public class JeuCartes implements Serializable {
 	
 	// attributs d'un jeu de cartes
@@ -15,7 +20,6 @@ public class JeuCartes implements Serializable {
 	public static final int nbrCartes = 64;
 
 	
-	// constructeur du jeu de cartes
 	/**
 	 * Constructeur de la classe JeuCartes
 	 * @param partie
@@ -24,9 +28,11 @@ public class JeuCartes implements Serializable {
 		// instancie le jeu de cartes 
 		this.tasCartes = new LinkedList<>();
 
-		// Instance des effets
+		/**
+		 * Instanciation des effets
+		 */
 
-		// deplacer
+		//*********************************deplacer*****************************
 
 		Effet deplacerVfToMain = new Deplacer(partie, partie.getJoueur().getViefuture(), partie.getJoueur().getMain());
 
@@ -70,6 +76,10 @@ public class JeuCartes implements Serializable {
 
 		Effet copierDeni = new Copier(partie, partie.getDefausse().getLast());
 
+		/*Effet copierInca = new Copier(partie, partie.getJoueur().getOeuvreExposee());
+
+		Effet copierMim = new Copier(partie, partie.getAdversaire().getOeuvreExposee());*/
+
 
 		//*********************************rejouer*****************************
 
@@ -94,10 +104,9 @@ public class JeuCartes implements Serializable {
 		Effet arrangerDuperie = new Arranger(partie, 3, 1, partie.getAdversaire().getMain(), partie.getJoueur().getMain(), true, true);
 
 
-
-
-		//Création des cartes
-
+		/**
+		 * Création des cartes
+		 */
 
 
 //*****************************************Cartes Bleus******************************************************
@@ -320,15 +329,40 @@ public class JeuCartes implements Serializable {
 		Bassesse2.addEffet(2, puiserMainAdvToFosse);
 		tasCartes.add(Bassesse2);
 
+		//*********************************Cartes Multicolor**************************************************************
+
+		/*Carte Incarnation1 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
+		Incarnation1.addEffet(copierInca);
+		tasCartes.add(Incarnation1);
+		Carte Incarnation2 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
+		Incarnation2.addEffet(copierInca);
+		tasCartes.add(Incarnation2);
+		Carte Incarnation3 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
+		Incarnation3.addEffet(copierInca);
+		tasCartes.add(Incarnation3);
+		Carte Incarnation4 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
+		Incarnation4.addEffet(copierInca);
+		tasCartes.add(Incarnation4);
+		Carte Incarnation5 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
+		Incarnation5.addEffet(copierInca);
+		tasCartes.add(Incarnation5);
+
+		Carte Mimetisme1 = new Carte("Mimétisme", Points.Un, Couleur.MULTI, Description.MIMETISME.getDescription());
+		Mimetisme1.addEffet(copierMim);
+		tasCartes.add(Mimetisme1);
+		Carte Mimetisme2 = new Carte("Mimétisme", Points.Un, Couleur.MULTI, Description.MIMETISME.getDescription());
+		Mimetisme2.addEffet(copierMim);
+		tasCartes.add(Mimetisme2);*/
+
+
 	}
 
 
 	
-	
-	// retire la premiére carte du tas de cartes (la carte du dessus)
+
 	/**
 	 * Retire la première carte du tas de cartes (la carte du dessus)
-	 * @return
+	 *
 	 */
 	public Carte distribuerUneCarte(){ 
 		Carte c;
@@ -338,7 +372,6 @@ public class JeuCartes implements Serializable {
 		
 	}
 	
-	// Mélange de toutes les cartes. Très simple ....Appel de shuffle de la classe Collections (à différencier de l'interface Collection)
 	/**
 	 * Mélange de toutes les cartes. Très simple ....Appel de shuffle de la classe Collections (à différencier de l'interface Collection)
 	 */
@@ -347,28 +380,20 @@ public class JeuCartes implements Serializable {
 	}
 	
 	
-	// le tas de cartes est-il vide?
 	/**
-	 * Le tas de cartes est-il vide?
-	 * @return
+	 * methode qui permet de savoir si le tas de cartes est vide
+	 *
 	 */
 	public boolean estVide() {
 		// le tas cartes est vide ?
 		return tasCartes.isEmpty();
 	}
 
-	/**
-	 * Retourne le nombre de cartes dans le tas de cartes
-	 * @return
-	 */
+
 	public String toString(){
 		return tasCartes.toString();
 	}
 
-	/**
-	 * Retourne le nombre de cartes dans le tas de cartes
-	 * @return
-	 */
 	public LinkedList<Carte> getTasCartes(){
 		return tasCartes;
 	}

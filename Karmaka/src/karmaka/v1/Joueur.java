@@ -8,7 +8,8 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * Classe Joueur
+ * Classe Joueur qui permet de créer un joueur avec un nom, des points de karma, des anneaux, une main, une pile, des oeuvres et une vie future.
+ * Ce joueur peut etre un joueur humain ou une IA.
  */
 public class Joueur implements Serializable {
 	
@@ -76,16 +77,10 @@ public class Joueur implements Serializable {
 		return pile;
 	}
 
-	/**
-	 * Methode qui permet de piocher une carte
-	 */
 	public boolean pileVide(){
 		return pile.isEmpty();
 	}
 
-	/**
-	 * Methode qui permet de piocher une carte
-	 */
 	public boolean mainVide(){
 		return main.isEmpty();
 	}
@@ -173,15 +168,13 @@ public class Joueur implements Serializable {
 
 	/**
 	 * methode qui permet de savoir si un joueur est vivant
-	 * @return vivant
 	 */
 	public boolean estVivant() {
 		return this.vivant;
 	}
 
 	/**
-	 * methode qui fait la somme des points par couleur
-	 * @return
+	 * methode qui fait la somme des points par couleur pour un joueur
 	 */
     public Map<Couleur, Integer> sommeDesPointsParCouleur() {
         Map<Couleur, Integer> sommePointsParCouleur = new HashMap<>();
@@ -197,9 +190,8 @@ public class Joueur implements Serializable {
     }
 
 	/**
-	 * methode qui permet de calculer le nombre de points max
+	 * methode qui permet de calculer le nombre de points max. Elle compare les points de chaque couleur et retourne la valeur max
 	 * @param sommeDesPointsParCouleur
-	 * @return
 	 */
     public int maxPoints(Map<Couleur, Integer> sommeDesPointsParCouleur) {
         int valeurMaximale = 0;  // La valeur par défaut si la Map est vide
@@ -212,13 +204,11 @@ public class Joueur implements Serializable {
 
         return valeurMaximale;
     }
-	
-	// Méthode publique pour pouvoir récupérer une carte dans la main du joueur
+
 
 	/**
 	 * methode qui permet de recuperer une carte de la main
 	 * @param nomCarte
-	 * @return
 	 */
     public Carte getCarteDeMain(String nomCarte) {
         for (Carte carte : main) {
@@ -230,12 +220,10 @@ public class Joueur implements Serializable {
         return null;
     }
 
-    
-    //Méthode pour récupérer une carte au hasard de la main 
+
 
 	/**
 	 * methode qui permet de recuperer une carte au hasard de la main
-	 * @return
 	 */
     public Carte getCarteAleatoireDeMain() {
         // Vérifiez si la main n'est pas vide
@@ -248,10 +236,9 @@ public class Joueur implements Serializable {
         int indexAleatoire = random.nextInt(main.size());
         return main.get(indexAleatoire);
     }
-	
-	// le joueur gagne s'il atteint 7 points de karma
+
 	/**
-	 * methode qui permet de savoir si le joueur a gagne
+	 * methode qui permet de savoir si le joueur a gagne. Il gagne s'il atteint 7 points de karma
 	 * @return
 	 */
 	public boolean isWinner(){
@@ -263,7 +250,6 @@ public class Joueur implements Serializable {
 
 	/**
 	 * methode qui permet de choisir un nombre aleatoire
-	 * @return
 	 */
     public int choixRandom() {
         // Génère une probabilité aléatoire entre 0 et 100

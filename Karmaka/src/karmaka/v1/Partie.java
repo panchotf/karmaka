@@ -8,7 +8,9 @@ import java.util.LinkedList;
 import java.util.Iterator;
 import java.io.*;
 
-
+/**
+ * Classe Partie qui permet de créer une partie avec une liste de joueurs, un jeu de cartes, une défausse et un joueur actuel
+ */
 public class Partie implements Serializable {
 
 	// attributs d'une Partie 
@@ -18,8 +20,12 @@ public class Partie implements Serializable {
 	private LinkedList<Carte> test;
 	private int joueurActuel; // Pour montrer qui est en train de jouer. En fait la variable prendre que la valeur 0 ou 1. 
 	
-	
-	//******************Constructeur de la partie*************
+
+	/**
+	 * Constructeur de la classe Partie
+	 * @param Joueur1
+	 * @param Joueur2
+	 */
 	public Partie(String Joueur1, String Joueur2) {
 		// instanciation de la liste des joueurs 
 		listJ = new ArrayList<>();
@@ -125,8 +131,11 @@ public class Partie implements Serializable {
 		return joueurActuel;
 	}
 	
-	
-    //*****************Mélange et distribution**************************
+
+	/**
+	 * Methode qui permet de mélanger les cartes et de les distribuer aux joueurs.
+	 * Utilise un itérateur pour parcourir la liste des joueurs et distribuer les cartes.
+	 */
 	public void distribuerCartes(){
 		jeu.melanger();
 		for (int i=0; i<4;i++) {
@@ -158,6 +167,10 @@ public class Partie implements Serializable {
 	
 	
 	// la partie est terminée quand un vainqueur est trouvé
+	/**
+	 * Methode qui permet de savoir si la partie est terminée ou non.
+	 * @return true si la partie est terminée, false sinon
+	 */
 	public boolean partieTerminee() {
 		boolean fin =false;
 		Iterator<Joueur> it =listJ.iterator();

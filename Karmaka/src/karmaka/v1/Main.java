@@ -5,7 +5,7 @@ public class Main {
 	
 
     /**
-     * Méthode main
+     * Méthode main qui permet de lancer le jeu.
      * @param args
      */
     public static void main(String[] args) {

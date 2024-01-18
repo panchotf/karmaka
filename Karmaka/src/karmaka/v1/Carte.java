@@ -4,14 +4,15 @@ import java.util.*;
 
 import java.io.*;
 
+/**
+ * Classe Carte qui permet de créer une carte avec un nom, des points, une couleur, une description et des effets
+ */
 public class Carte implements Serializable {
 	
 	private String nom;
     private Points points;
     private Couleur couleur;
     private String description;
-    
-//    private Effet effet;
 
     private ArrayList<Effet> effets; // Utilisation d'une liste pour stocker les effets
 
@@ -26,15 +27,11 @@ public class Carte implements Serializable {
         this.setNom(nom);
     	this.setCouleur(couleur);
     	this.setPoints(points);
-//    	this.effet = effet;
     	this.description = description;
         effets = new ArrayList<>();
 
     }
 
-
-
-    // Méthode pour ajouter un effet à la liste
     /**
      * Ajoute un effet à la liste des effets de la carte
      * @param effet
@@ -100,7 +97,7 @@ public class Carte implements Serializable {
     
 
     /**
-     * Applique les effets de la carte
+     * methode applyEffet qui permet d'appliquer tous les effets contenu dans la liste effets
      * @param partie
      */
 	public void applyEffet(Partie partie) {

@@ -1,7 +1,7 @@
 package karmaka.v1;
 
 /**
- * Enumeration des couleurs des cartes
+ * Enumeration de description des cartes
  */
 public enum Description {
 
@@ -33,7 +33,10 @@ public enum Description {
     // Attribut pour stocker la description de chaque élément
     private final String description;
 
-    // Constructeur privé pour initialiser la description
+    /**
+     * Constructeur privé pour initialiser la description
+     * @param description
+     */
     private Description(String description) {
         this.description = description;
     }
