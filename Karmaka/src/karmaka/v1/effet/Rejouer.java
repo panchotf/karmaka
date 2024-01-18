@@ -4,6 +4,11 @@ import karmaka.v1.*;
 
 import java.util.LinkedList;
 
+/**
+ * Classe Rejouer qui permet de rejouer une carte. Elle fonctionne en 2 étapes :
+ * 1) choisir une carte cible
+ * 2) appliquer l'effet de la carte cible
+ */
 public class Rejouer implements Effet {
 
 

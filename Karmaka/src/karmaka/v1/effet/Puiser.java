@@ -9,6 +9,12 @@ import karmaka.v1.Terminal;
 
 import java.util.LinkedList;
 
+/**
+ * Classe Puiser qui permet de puiser une carte. Elle fonctionne en 2 étapes :
+ * 1) choisir une carte cible
+ * 2) déplacer la carte cible dans une autre liste
+ * C'est une méthode déplacer, sauf que c'est la première carte de la liste de départ qui est déplacée : on ne choisit pas la carte dans la liste de départ
+ */
 public class Puiser implements Effet {
 
     //meme effet que deplacer sauf que c'est la premiere carte du depart qui est deplacée, pas de choix possible

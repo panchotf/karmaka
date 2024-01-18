@@ -11,6 +11,11 @@ import java.util.Random;
 
 import java.util.LinkedList;
 
+/**
+ * Classe Deplacer qui permet de déplacer une carte d'une liste à une autre. Elle fonctionne en 2 étapes :
+ * 1) choisir une carte cible
+ * 2) déplacer la carte cible dans une autre liste
+ */
 public class Deplacer implements Effet {
 
 	private final Partie partie;

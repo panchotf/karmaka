@@ -6,12 +6,19 @@ public class Terminal {
 	
 	private InputStream entree;
 	private PrintStream sortie;
-	
+
+	/**
+	 * Constructeur de la classe Terminal
+	 */
 	public Terminal(){
 		entree = System.in;
 		sortie = System.out;		
 	}
-	
+
+	/**
+	 * methode qui permet de lire un entier
+	 * @return
+	 */
 	public int lireEntier(){
 		DataInputStream dos = new DataInputStream(entree);
 		int value=0;
@@ -22,7 +29,11 @@ public class Terminal {
 		}
 	return value;		
 	}
-	
+
+	/**
+	 * methode qui permet de lire une chaine de caractere
+	 * @return
+	 */
 	public String lireChaine(){
 		String laChaine = null;
 		BufferedReader br = new BufferedReader(new InputStreamReader(entree));

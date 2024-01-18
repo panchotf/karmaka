@@ -7,6 +7,11 @@ import karmaka.v1.Partie;
 
 import java.util.*;
 
+/**
+ * Classe Regarder qui permet de regarder une carte. Elle fonctionne en 2 étapes :
+ * 1) choisir une carte cible
+ * 2) regarder la carte cible
+ */
 public class Regarder implements Effet {
 
 

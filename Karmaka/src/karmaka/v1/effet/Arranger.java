@@ -13,6 +13,13 @@ import karmaka.v1.Terminal;
 
 import java.util.*;
 
+/**
+ * Classe Arranger qui permet d'arranger les cartes d'une liste. Elle fonctionne en 3 étapes :
+ * 1) déplacer les cartes de la liste cible vers la liste depot
+ * 2) déplacer certaines cartes de la liste depot vers la liste arrivee
+ * 3) replacer les cartes restantes de depot dans un ordre choisit dans cible
+ */
+
 public class Arranger implements Effet {
 
 
@@ -67,7 +74,7 @@ public class Arranger implements Effet {
     }
 
 
-    /** methode qui permet d'arranger les cartes d'une liste
+    /** methode qui permet d'arranger les cartes d'une liste donnée
      * @param partie
      * @param joueur
      * @param nombre
@@ -85,6 +92,7 @@ public class Arranger implements Effet {
     }
 
     /**
+     * Methode qui permet d'appliquer l'effet Arranger
      * @param partie
      */
     @Override
