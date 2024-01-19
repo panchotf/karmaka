@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"karmaka.v1"},{"l":"karmaka.v1.effet"}];updateSearchResults();
