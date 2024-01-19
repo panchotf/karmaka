@@ -76,10 +76,6 @@ public class JeuCartes implements Serializable {
 
 		Effet copierDeni = new Copier(partie, partie.getDefausse().getLast());
 
-		/*Effet copierInca = new Copier(partie, partie.getJoueur().getOeuvreExposee());
-
-		Effet copierMim = new Copier(partie, partie.getAdversaire().getOeuvreExposee());*/
-
 
 		//*********************************rejouer*****************************
 
@@ -331,28 +327,28 @@ public class JeuCartes implements Serializable {
 
 		//*********************************Cartes Multicolor**************************************************************
 
-		/*Carte Incarnation1 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
-		Incarnation1.addEffet(copierInca);
+		Carte Incarnation1 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
+		Incarnation1.addEffet(copierDeni);
 		tasCartes.add(Incarnation1);
 		Carte Incarnation2 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
-		Incarnation2.addEffet(copierInca);
+		Incarnation2.addEffet(copierDeni);
 		tasCartes.add(Incarnation2);
 		Carte Incarnation3 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
-		Incarnation3.addEffet(copierInca);
+		Incarnation3.addEffet(copierDeni);
 		tasCartes.add(Incarnation3);
 		Carte Incarnation4 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
-		Incarnation4.addEffet(copierInca);
+		Incarnation4.addEffet(copierDeni);
 		tasCartes.add(Incarnation4);
 		Carte Incarnation5 = new Carte("Incarnation", Points.Un, Couleur.MULTI, Description.INCARNATION.getDescription());
-		Incarnation5.addEffet(copierInca);
+		Incarnation5.addEffet(copierDeni);
 		tasCartes.add(Incarnation5);
 
 		Carte Mimetisme1 = new Carte("Mimétisme", Points.Un, Couleur.MULTI, Description.MIMETISME.getDescription());
-		Mimetisme1.addEffet(copierMim);
+		Mimetisme1.addEffet(copierDeni);
 		tasCartes.add(Mimetisme1);
 		Carte Mimetisme2 = new Carte("Mimétisme", Points.Un, Couleur.MULTI, Description.MIMETISME.getDescription());
-		Mimetisme2.addEffet(copierMim);
-		tasCartes.add(Mimetisme2);*/
+		Mimetisme2.addEffet(copierDeni);
+		tasCartes.add(Mimetisme2);
 
 
 	}
